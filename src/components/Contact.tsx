@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone, MapPin, Clock, Instagram } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Contact() {
   return (
@@ -11,6 +12,7 @@ export default function Contact() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section Header */}
+        <ScrollReveal>
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
             Get in Touch
@@ -24,9 +26,11 @@ export default function Contact() {
             — we&apos;re always happy to help you find the perfect treatment.
           </p>
         </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Info */}
+          <ScrollReveal direction="left">
           <div className="space-y-8">
             {/* Phone */}
             <div className="group flex items-start gap-5">
@@ -99,8 +103,10 @@ export default function Contact() {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* Map */}
+          <ScrollReveal direction="right" delay={200}>
           <div className="relative pt-3 pl-3">
             <div className="relative rounded-2xl overflow-hidden border border-brown-100/40 shadow-[0_8px_30px_rgba(44,30,16,0.06)] h-full min-h-[400px]">
               <iframe
@@ -118,6 +124,7 @@ export default function Contact() {
             {/* Decorative border accent */}
             <div className="absolute top-0 left-0 w-full h-full rounded-2xl border-2 border-gold/15 pointer-events-none" />
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

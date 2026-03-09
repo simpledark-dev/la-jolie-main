@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { X, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 // Import all gallery images here — just add a new line when you add a photo
 import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
@@ -93,85 +94,92 @@ export default function Gallery() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-            Our Work
-          </span>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-            The{" "}
-            <span className="italic font-light text-brown-600">Gallery</span>
-          </h2>
-          <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
-            A glimpse into the artistry and care that goes into every set of nails.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
+              Our Work
+            </span>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
+              The{" "}
+              <span className="italic font-light text-brown-600">Gallery</span>
+            </h2>
+            <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
+              A glimpse into the artistry and care that goes into every set of nails.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {visibleImages.map((img, i) => (
-            <button
-              key={i}
-              onClick={() => openLightbox(i)}
-              className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brown-900/50 via-brown-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              {/* Hover Label */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="font-body text-xs md:text-sm tracking-wide text-warm-white/90">
-                  {img.alt}
-                </p>
-              </div>
-              {/* Subtle gold border on hover */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-gold/0 transition-all duration-500 group-hover:border-gold/30" />
-            </button>
+            <ScrollReveal key={i} delay={i < 6 ? i * 80 : 0}>
+              <button
+                onClick={() => openLightbox(i)}
+                className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brown-900/50 via-brown-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Hover Label */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="font-body text-xs md:text-sm tracking-wide text-warm-white/90">
+                    {img.alt}
+                  </p>
+                </div>
+                {/* Subtle gold border on hover */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-gold/0 transition-all duration-500 group-hover:border-gold/30" />
+              </button>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Show More / Show Less */}
-        <div className="mt-12 text-center flex items-center justify-center gap-4">
-          {hasMore && (
-            <button
-              onClick={showMore}
-              className="inline-flex items-center px-8 py-3 border border-brown-300/60 text-brown-600 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:border-gold hover:text-brown-800 hover:bg-warm-white/50"
-            >
-              View More ({galleryImages.length - visibleCount} remaining)
-            </button>
-          )}
-          {visibleCount > INITIAL_COUNT && (
-            <button
-              onClick={() => setVisibleCount(INITIAL_COUNT)}
-              className="inline-flex items-center px-8 py-3 text-brown-400 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:text-brown-600"
-            >
-              Show Less
-            </button>
-          )}
-        </div>
+        <ScrollReveal direction="none">
+          <div className="mt-12 text-center flex items-center justify-center gap-4">
+            {hasMore && (
+              <button
+                onClick={showMore}
+                className="inline-flex items-center px-8 py-3 border border-brown-300/60 text-brown-600 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:border-gold hover:text-brown-800 hover:bg-warm-white/50"
+              >
+                View More ({galleryImages.length - visibleCount} remaining)
+              </button>
+            )}
+            {visibleCount > INITIAL_COUNT && (
+              <button
+                onClick={() => setVisibleCount(INITIAL_COUNT)}
+                className="inline-flex items-center px-8 py-3 text-brown-400 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:text-brown-600"
+              >
+                Show Less
+              </button>
+            )}
+          </div>
+        </ScrollReveal>
 
         {/* Instagram CTA */}
-        <div className="mt-14 text-center">
-          <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/50 backdrop-blur-sm">
-            <p className="font-body text-sm text-brown-600">
-              Love what you see? Follow us for daily inspiration
-            </p>
-            <a
-              href="https://www.instagram.com/lajoliemain.mtl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 px-7 py-3 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"
-            >
-              <Instagram size={18} className="transition-transform duration-300 group-hover:scale-110" />
-              Follow @lajoliemain.mtl
-            </a>
+        <ScrollReveal delay={100}>
+          <div className="mt-14 text-center">
+            <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/50 backdrop-blur-sm">
+              <p className="font-body text-sm text-brown-600">
+                Love what you see? Follow us for daily inspiration
+              </p>
+              <a
+                href="https://www.instagram.com/lajoliemain.mtl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 px-7 py-3 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"
+              >
+                <Instagram size={18} className="transition-transform duration-300 group-hover:scale-110" />
+                Follow @lajoliemain.mtl
+              </a>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Lightbox */}
@@ -180,7 +188,6 @@ export default function Gallery() {
           className="fixed inset-0 z-[100] bg-brown-900/90 backdrop-blur-sm flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Close button */}
           <button
             onClick={closeLightbox}
             className="absolute top-6 right-6 w-10 h-10 rounded-full bg-warm-white/10 flex items-center justify-center text-warm-white/80 transition-colors hover:bg-warm-white/20 hover:text-warm-white"
@@ -189,12 +196,10 @@ export default function Gallery() {
             <X size={20} />
           </button>
 
-          {/* Counter */}
           <div className="absolute top-6 left-6 font-body text-sm text-warm-white/50 tracking-wider">
             {lightboxIndex + 1} / {galleryImages.length}
           </div>
 
-          {/* Previous */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -206,7 +211,6 @@ export default function Gallery() {
             <ChevronLeft size={24} />
           </button>
 
-          {/* Image */}
           <div
             className="relative w-[90vw] h-[80vh] max-w-4xl"
             onClick={(e) => e.stopPropagation()}
@@ -221,7 +225,6 @@ export default function Gallery() {
             />
           </div>
 
-          {/* Next */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -233,7 +236,6 @@ export default function Gallery() {
             <ChevronRight size={24} />
           </button>
 
-          {/* Caption */}
           <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-body text-sm text-warm-white/60 tracking-wide text-center">
             {galleryImages[lightboxIndex].alt}
           </p>

@@ -1,14 +1,15 @@
 "use client";
 
 import { Instagram, Heart } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Our Salon", href: "#salon" },
-  { label: "Services", href: "#services" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Our Salon", href: "/#salon" },
+  { label: "Services", href: "/#services" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
@@ -18,6 +19,7 @@ export default function Footer() {
       <div className="h-[1px] gold-shimmer" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 lg:py-20">
+        <ScrollReveal>
         <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
           {/* Brand Column */}
           <div>
@@ -84,6 +86,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-warm-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">

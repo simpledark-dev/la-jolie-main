@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { services, getServiceBySlug, getRelatedCombos } from "@/data/services";
 import ImageCarousel from "@/components/ImageCarousel";
 import { FloralBranch, FloralPeony, FloralWildflower, FloralScatter } from "@/components/FloralDecorations";
+import ScrollReveal from "@/components/ScrollReveal";
 import type { Metadata } from "next";
 
 interface Props {
@@ -70,7 +71,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Back link */}
           <Link
             href="/#services"
-            className="inline-flex items-center gap-2 font-body text-sm text-brown-500 transition-colors hover:text-gold-dark mb-10"
+            className="animate-fade-in-up inline-flex items-center gap-2 font-body text-sm text-brown-500 transition-colors hover:text-gold-dark mb-10"
           >
             <ArrowLeft size={14} />
             Back to Services
@@ -78,7 +79,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
           <div className="max-w-3xl">
             {/* Icon + Category */}
-            <div className="flex items-center gap-4 mb-6">
+            <div className="animate-fade-in-up animation-delay-200 flex items-center gap-4 mb-6">
               <div className="w-14 h-14 rounded-full bg-blush flex items-center justify-center">
                 <Icon size={24} className="text-brown-600" />
               </div>
@@ -88,7 +89,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
 
             {/* Description */}
-            <p className="font-body text-lg md:text-xl leading-relaxed text-brown-500 font-light max-w-2xl">
+            <p className="animate-fade-in-up animation-delay-400 font-body text-lg md:text-xl leading-relaxed text-brown-500 font-light max-w-2xl">
               {service.description}
             </p>
           </div>
@@ -98,12 +99,14 @@ export default async function ServiceDetailPage({ params }: Props) {
       {/* Image Showcase */}
       {service.images.length > 0 && (
         <section className="relative py-16 lg:py-20 bg-warm-white overflow-hidden">
+          <ScrollReveal>
           <div className="relative z-10 mx-auto max-w-2xl px-6 lg:px-10">
             <ImageCarousel
               images={service.images}
               alt={service.category}
             />
           </div>
+          </ScrollReveal>
         </section>
       )}
 
@@ -118,6 +121,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-10">
           {/* Section header */}
+          <ScrollReveal>
           <div className="text-center mb-12">
             <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
               Pricing
@@ -127,8 +131,10 @@ export default async function ServiceDetailPage({ params }: Props) {
               <span className="italic font-light text-brown-600">Services</span>
             </h2>
           </div>
+          </ScrollReveal>
 
           {/* Pricing card */}
+          <ScrollReveal delay={100}>
           <div className="bg-warm-white rounded-2xl border border-brown-100/40 shadow-[0_8px_30px_rgba(44,30,16,0.05)] p-8 sm:p-10 overflow-hidden relative">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
@@ -177,7 +183,10 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
           )}
 
+          </ScrollReveal>
+
           {/* CTA */}
+          <ScrollReveal delay={200}>
           <div className="mt-12 text-center">
             <a
               href="https://bellebooking.com/center/lynn-signature-nails"
@@ -192,6 +201,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               />
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </main>
