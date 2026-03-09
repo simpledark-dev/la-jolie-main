@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
+import { useTranslation } from "@/i18n/LanguageContext";
 import heroImg1 from "@/assets/gallery/pastel-aurora-chrome.jpg";
 import heroImg2 from "@/assets/gallery/french-butterfly-white.jpg";
 import heroImg3 from "@/assets/gallery/red-french-floral-2.jpg";
 
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <section
       id="home"
@@ -35,28 +37,26 @@ export default function Hero() {
             <div className="animate-fade-in-up inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/30 bg-warm-white/60 backdrop-blur-sm mb-8">
               <Sparkles size={14} className="text-gold" />
               <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-brown-500">
-                Premium Nail Care
+                {t.hero.badge}
               </span>
             </div>
 
             {/* Headline */}
             <h1 className="animate-fade-in-up animation-delay-200 font-display text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-semibold leading-[1.05] tracking-tight text-brown-900">
-              Where Beauty{" "}
-              <span className="italic font-light text-brown-600">Meets</span>
+              {t.hero.headlinePart1}{" "}
+              <span className="italic font-light text-brown-600">{t.hero.headlinePart2}</span>
               <br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(to right, #6B4F3A, #C9A96E, #8B6F47)" }}
               >
-                Elegance
+                {t.hero.headlinePart3}
               </span>
             </h1>
 
             {/* Supporting text */}
             <p className="animate-fade-in-up animation-delay-400 mt-8 max-w-lg max-lg:mx-auto font-body text-lg md:text-xl leading-relaxed text-brown-500 font-light">
-              Indulge in a refined nail care experience crafted with precision,
-              warmth, and the finest products. Your hands deserve to feel as
-              beautiful as they look.
+              {t.hero.description}
             </p>
 
             {/* CTAs */}
@@ -67,7 +67,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
               >
-                Book Your Visit
+                {t.hero.cta}
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -77,7 +77,7 @@ export default function Hero() {
                 href="#services"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-brown-300/60 text-brown-600 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:border-gold hover:text-brown-800 hover:bg-warm-white/50"
               >
-                Explore Services
+                {t.hero.ctaSecondary}
               </a>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function Hero() {
             <div className="absolute top-8 right-0 translate-x-4 z-30 bg-warm-white/95 backdrop-blur-sm rounded-xl shadow-[0_8px_30px_rgba(44,30,16,0.08)] px-5 py-3 border border-cream-dark">
               <p className="font-display text-2xl font-semibold text-brown-700">500+</p>
               <p className="font-body text-[10px] tracking-wider uppercase text-brown-400">
-                Happy Clients
+                {t.hero.happyClients}
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function Hero() {
           href="#salon"
           className="flex flex-col items-center gap-2 text-brown-400 transition-colors hover:text-gold-dark"
         >
-          <span className="font-body text-[10px] tracking-[0.2em] uppercase">Discover</span>
+          <span className="font-body text-[10px] tracking-[0.2em] uppercase">{t.hero.discover}</span>
           <ChevronDown size={16} className="animate-bounce" />
         </a>
       </div>

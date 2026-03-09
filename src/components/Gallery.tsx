@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { X, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 // Import all gallery images here — just add a new line when you add a photo
 import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
@@ -46,6 +47,7 @@ const INITIAL_COUNT = 6;
 const LOAD_MORE_COUNT = 6;
 
 export default function Gallery() {
+  const { t } = useTranslation();
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -97,14 +99,14 @@ export default function Gallery() {
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-              Our Work
+              {t.gallery.label}
             </span>
             <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-              The{" "}
-              <span className="italic font-light text-brown-600">Gallery</span>
+              {t.gallery.headlinePart1}{" "}
+              <span className="italic font-light text-brown-600">{t.gallery.headlinePart2}</span>
             </h2>
             <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
-              A glimpse into the artistry and care that goes into every set of nails.
+              {t.gallery.description}
             </p>
           </div>
         </ScrollReveal>
@@ -147,7 +149,7 @@ export default function Gallery() {
                 onClick={showMore}
                 className="inline-flex items-center px-8 py-3 border border-brown-300/60 text-brown-600 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:border-gold hover:text-brown-800 hover:bg-warm-white/50"
               >
-                View More ({galleryImages.length - visibleCount} remaining)
+                {t.gallery.viewMore} ({galleryImages.length - visibleCount} {t.gallery.remaining})
               </button>
             )}
             {visibleCount > INITIAL_COUNT && (
@@ -155,7 +157,7 @@ export default function Gallery() {
                 onClick={() => setVisibleCount(INITIAL_COUNT)}
                 className="inline-flex items-center px-8 py-3 text-brown-400 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:text-brown-600"
               >
-                Show Less
+                {t.gallery.showLess}
               </button>
             )}
           </div>
@@ -166,7 +168,7 @@ export default function Gallery() {
           <div className="mt-14 text-center">
             <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/50 backdrop-blur-sm">
               <p className="font-body text-sm text-brown-600">
-                Love what you see? Follow us for daily inspiration
+                {t.gallery.followCta}
               </p>
               <a
                 href="https://www.instagram.com/lajoliemain.mtl/"
@@ -175,7 +177,7 @@ export default function Gallery() {
                 className="group inline-flex items-center gap-2.5 px-7 py-3 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"
               >
                 <Instagram size={18} className="transition-transform duration-300 group-hover:scale-110" />
-                Follow @lajoliemain.mtl
+                {t.gallery.followButton}
               </a>
             </div>
           </div>

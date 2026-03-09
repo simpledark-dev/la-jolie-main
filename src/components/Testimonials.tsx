@@ -3,36 +3,16 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const testimonials = [
-  {
-    name: "Ariane Jade",
-    text: "Incredibly impressed by the professionalism. The nail technician was skilled, attentive, and took the time to understand exactly what I wanted. Flawless polish, elegant finish, and long-lasting quality. Exceeded my expectations!",
-    rating: 5,
-  },
-  {
-    name: "Louise-K Truong",
-    text: "Lynn is the absolute BEST! So convenient, right next to the metro. She's incredibly nice and genuinely passionate about her work. Loved seeing her collection of amazing accessories. Highly recommend — just remember, appointment only!",
-    rating: 5,
-  },
-  {
-    name: "Giulia Arteaga-Lavoie",
-    text: "Went for the first time and she was amazing — super sweet and welcoming. Didn't feel any pain during or after. The idea I had in my head was executed perfectly on my hands and beyond. Can't wait to go back!",
-    rating: 5,
-  },
-  {
-    name: "Rosalie Nguyen",
-    text: "Got Halloween nails here and the service was amazing, so were the nails. The design came out perfectly how I wanted them. Will definitely come back!",
-    rating: 5,
-  },
-  {
-    name: "FSIUDEM",
-    text: "The tech was super detail-oriented and took time to make sure the shape, length, and design matched exactly what I wanted. Clean space, calm vibe, and the set lasted with zero lifting. If you want flawless nails and someone who actually listens, this is the spot.",
-    rating: 5,
-  },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+
+  const testimonials = t.testimonials.reviews.map((review) => ({
+    name: review.name,
+    text: review.text,
+    rating: 5,
+  }));
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -62,7 +42,7 @@ export default function Testimonials() {
     return () => clearInterval(timer);
   }, [next]);
 
-  const t = testimonials[current];
+  const active = testimonials[current];
 
   return (
     <section id="testimonials" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
@@ -74,12 +54,12 @@ export default function Testimonials() {
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto">
             <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-              Testimonials
+              {t.testimonials.label}
             </span>
             <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-              What Our{" "}
-              <span className="italic font-light text-brown-600">Clients</span>{" "}
-              Say
+              {t.testimonials.headlinePart1}{" "}
+              <span className="italic font-light text-brown-600">{t.testimonials.headlinePart2}</span>{" "}
+              {t.testimonials.headlinePart3}
             </h2>
           </div>
         </ScrollReveal>
@@ -100,7 +80,7 @@ export default function Testimonials() {
               >
                 {/* Stars */}
                 <div className="flex items-center justify-center gap-1 mb-6">
-                  {Array.from({ length: t.rating }).map((_, i) => (
+                  {Array.from({ length: active.rating }).map((_, i) => (
                     <Star
                       key={i}
                       size={16}
@@ -111,14 +91,14 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="font-body text-lg sm:text-xl leading-relaxed text-brown-700 italic">
-                  {t.text}
+                  {active.text}
                 </blockquote>
 
                 {/* Author */}
                 <div className="mt-8">
                   <div className="w-10 h-[1px] bg-gold/40 mx-auto mb-4" />
                   <p className="font-display text-lg font-semibold text-brown-800">
-                    {t.name}
+                    {active.name}
                   </p>
                   <div className="mt-2 inline-flex items-center gap-1.5 text-brown-400">
                     <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +108,7 @@ export default function Testimonials() {
                       <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                     </svg>
                     <span className="font-body text-[11px] tracking-wider uppercase">
-                      Google Review
+                      {t.testimonials.googleReview}
                     </span>
                   </div>
                 </div>

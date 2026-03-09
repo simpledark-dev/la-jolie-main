@@ -2,8 +2,10 @@
 
 import { Phone, MapPin, Clock, Instagram } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <section id="contact" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
       {/* Background accents */}
@@ -15,15 +17,14 @@ export default function Contact() {
         <ScrollReveal>
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-            Get in Touch
+            {t.contact.label}
           </span>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-            Visit{" "}
-            <span className="italic font-light text-brown-600">Us</span>
+            {t.contact.headlinePart1}{" "}
+            <span className="italic font-light text-brown-600">{t.contact.headlinePart2}</span>
           </h2>
           <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
-            We&apos;d love to welcome you. Drop by, call, or send us a message
-            — we&apos;re always happy to help you find the perfect treatment.
+            {t.contact.description}
           </p>
         </div>
         </ScrollReveal>
@@ -39,7 +40,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-brown-800">
-                  Phone
+                  {t.contact.phone}
                 </h3>
                 <a
                   href="tel:+12635529513"
@@ -57,7 +58,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-brown-800">
-                  Instagram
+                  {t.contact.instagram}
                 </h3>
                 <a
                   href="https://www.instagram.com/lajoliemain.mtl/"
@@ -77,7 +78,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-brown-800">
-                  Address
+                  {t.contact.address}
                 </h3>
                 <p className="mt-1 font-body text-base text-brown-600 leading-relaxed">
                   487 Bd Décarie, unit B
@@ -94,11 +95,11 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-display text-lg font-semibold text-brown-800">
-                  Hours
+                  {t.contact.hours}
                 </h3>
                 <div className="mt-1 font-body text-base text-brown-600 space-y-0.5">
-                  <p>Tue, Thu, Sun: 9:00 AM – 8:00 PM</p>
-                  <p>Mon, Wed, Fri, Sat: Closed</p>
+                  <p>{t.contact.hoursTuThuSun}</p>
+                  <p>{t.contact.hoursClosed}</p>
                 </div>
               </div>
             </div>

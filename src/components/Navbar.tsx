@@ -6,23 +6,10 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-2.png";
 import { services } from "@/data/services";
-
-const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "Our Salon", href: "/#salon" },
-  { label: "Services", href: "/#services", hasDropdown: true },
-  { label: "Testimonials", href: "/#testimonials" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Contact", href: "/#contact" },
-];
-
-const serviceLinks = services.map((s) => ({
-  label: s.category,
-  href: `/services/${s.slug}`,
-  icon: s.icon,
-}));
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Navbar() {
+  const { locale, setLocale, t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -30,13 +17,27 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const navLinks = [
+    { label: t.nav.home, href: "/#home" },
+    { label: t.nav.salon, href: "/#salon" },
+    { label: t.nav.services, href: "/#services", hasDropdown: true },
+    { label: t.nav.testimonials, href: "/#testimonials" },
+    { label: t.nav.gallery, href: "/#gallery" },
+    { label: t.nav.contact, href: "/#contact" },
+  ];
+
+  const serviceLinks = services.map((s) => ({
+    label: t.serviceCategories[s.slug as keyof typeof t.serviceCategories]?.category ?? s.category,
+    href: `/services/${s.slug}`,
+    icon: s.icon,
+  }));
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -54,6 +55,10 @@ export default function Navbar() {
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
+  };
+
+  const toggleLocale = () => {
+    setLocale(locale === "en" ? "fr" : "en");
   };
 
   return (
@@ -141,7 +146,7 @@ export default function Navbar() {
                           onClick={() => setServicesOpen(false)}
                           className="block px-4 py-2.5 rounded-lg font-body text-xs font-medium tracking-wider uppercase text-gold-dark transition-colors hover:bg-blush/50 hover:text-brown-700"
                         >
-                          All Services & Pricing
+                          {t.nav.allServices}
                         </a>
                       </div>
                     </div>
@@ -159,15 +164,23 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          {/* CTA + Language + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLocale}
+              className="cursor-pointer font-body text-xs font-medium tracking-wider uppercase text-brown-500 border border-brown-200/60 rounded-full px-3 py-1.5 transition-all duration-300 hover:border-gold hover:text-gold-dark hover:bg-warm-white/50"
+            >
+              {locale === "en" ? "FR" : "EN"}
+            </button>
+
             <a
               href="https://bellebooking.com/center/lynn-signature-nails"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:inline-flex items-center px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"
             >
-              Book Appointment
+              {t.nav.bookAppointment}
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -182,87 +195,91 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          mobileOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden grid transition-[grid-template-rows] duration-300 ease-out ${
+          mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         }`}
       >
-        <div className="bg-warm-white/98 backdrop-blur-md border-t border-brown-100/50 px-6 py-6 space-y-1">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              <div key={link.href}>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between py-3 font-body text-sm font-medium tracking-wider uppercase text-brown-600 transition-colors hover:text-gold-dark border-b border-cream-dark/50"
-                >
-                  {link.label}
-                  <ChevronDown
-                    size={16}
-                    className={`text-brown-400 transition-transform duration-300 ${
-                      mobileServicesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
+        <div className="overflow-hidden">
+          <div className="bg-warm-white/98 border-t border-brown-100/50 px-6 py-6 space-y-1">
+            {navLinks.map((link) =>
+              link.hasDropdown ? (
+                <div key={link.href}>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between py-3 font-body text-sm font-medium tracking-wider uppercase text-brown-600 transition-colors hover:text-gold-dark border-b border-cream-dark/50"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={16}
+                      className={`text-brown-400 transition-transform duration-300 ${
+                        mobileServicesOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    mobileServicesOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="py-2 pl-2 space-y-0.5">
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={service.href}
-                          href={service.href}
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                      mobileServicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="py-2 pl-2 space-y-0.5">
+                        {serviceLinks.map((service) => {
+                          const Icon = service.icon;
+                          return (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              onClick={() => {
+                                setMobileOpen(false);
+                                setMobileServicesOpen(false);
+                              }}
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors hover:bg-blush/40"
+                            >
+                              <div className="flex-shrink-0 w-7 h-7 rounded-full bg-cream flex items-center justify-center">
+                                <Icon size={13} className="text-brown-600" />
+                              </div>
+                              <span className="font-body text-sm text-brown-600">
+                                {service.label}
+                              </span>
+                            </Link>
+                          );
+                        })}
+                        <a
+                          href="/#services"
                           onClick={() => {
                             setMobileOpen(false);
                             setMobileServicesOpen(false);
                           }}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors hover:bg-blush/40"
+                          className="block px-3 py-2.5 rounded-lg font-body text-xs font-medium tracking-wider uppercase text-gold-dark transition-colors hover:bg-blush/40"
                         >
-                          <div className="flex-shrink-0 w-7 h-7 rounded-full bg-cream flex items-center justify-center">
-                            <Icon size={13} className="text-brown-600" />
-                          </div>
-                          <span className="font-body text-sm text-brown-600">
-                            {service.label}
-                          </span>
-                        </Link>
-                      );
-                    })}
-                    <a
-                      href="/#services"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setMobileServicesOpen(false);
-                      }}
-                      className="block px-3 py-2.5 rounded-lg font-body text-xs font-medium tracking-wider uppercase text-gold-dark transition-colors hover:bg-blush/40"
-                    >
-                      All Services & Pricing
-                    </a>
+                          {t.nav.allServices}
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="block py-3 font-body text-sm font-medium tracking-wider uppercase text-brown-600 transition-colors hover:text-gold-dark border-b border-cream-dark/50 last:border-0"
-              >
-                {link.label}
-              </a>
-            )
-          )}
-          <a
-            href="https://bellebooking.com/center/lynn-signature-nails"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center mt-4 px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800"
-          >
-            Book Appointment
-          </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block py-3 font-body text-sm font-medium tracking-wider uppercase text-brown-600 transition-colors hover:text-gold-dark border-b border-cream-dark/50 last:border-0"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+            <a
+              href="https://bellebooking.com/center/lynn-signature-nails"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center mt-4 px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800"
+            >
+              {t.nav.bookAppointment}
+            </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -2,31 +2,18 @@
 
 import { Sparkles, Shield, Heart, Leaf } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const highlights = [
-  {
-    icon: Sparkles,
-    title: "Premium Products",
-    text: "We use only the finest, long-lasting nail products from trusted luxury brands.",
-  },
-  {
-    icon: Shield,
-    title: "Hygienic Process",
-    text: "Every tool is sterilized, every surface pristine — your safety is our standard.",
-  },
-  {
-    icon: Heart,
-    title: "Skilled Technicians",
-    text: "Our artists bring years of expertise and a genuine passion for nail artistry.",
-  },
-  {
-    icon: Leaf,
-    title: "Relaxing Experience",
-    text: "Unwind in a calming, beautifully designed space made just for your comfort.",
-  },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function OurSalon() {
+  const { t } = useTranslation();
+
+  const highlights = [
+    { icon: Sparkles, title: t.salon.highlights.premiumProducts, text: t.salon.highlights.premiumProductsText },
+    { icon: Shield, title: t.salon.highlights.hygienicProcess, text: t.salon.highlights.hygienicProcessText },
+    { icon: Heart, title: t.salon.highlights.skilledTechnicians, text: t.salon.highlights.skilledTechniciansText },
+    { icon: Leaf, title: t.salon.highlights.relaxingExperience, text: t.salon.highlights.relaxingExperienceText },
+  ];
+
   return (
     <section id="salon" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -46,7 +33,7 @@ export default function OurSalon() {
               <div className="absolute bottom-0 left-0 bg-warm-white rounded-xl shadow-[0_8px_30px_rgba(44,30,16,0.08)] px-6 py-4 border border-cream-dark">
                 <p className="font-display text-3xl font-semibold text-brown-700">8+</p>
                 <p className="font-body text-xs tracking-wider uppercase text-brown-400 mt-0.5">
-                  Years of Excellence
+                  {t.salon.yearsOfExcellence}
                 </p>
               </div>
             </div>
@@ -56,26 +43,21 @@ export default function OurSalon() {
           <ScrollReveal direction="right" delay={200}>
             <div>
               <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-                Our Salon
+                {t.salon.label}
               </span>
 
               <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-                A Place Where You{" "}
-                <span className="italic font-light text-brown-600">Feel</span>{" "}
-                Beautiful
+                {t.salon.headlinePart1}{" "}
+                <span className="italic font-light text-brown-600">{t.salon.headlinePart2}</span>{" "}
+                {t.salon.headlinePart3}
               </h2>
 
               <div className="mt-6 space-y-4">
                 <p className="font-body text-base leading-relaxed text-brown-600">
-                  At La Jolie Main, we believe that nail care is more than a
-                  service — it&apos;s a moment of self-care, a ritual of beauty, and
-                  a personal expression of elegance.
+                  {t.salon.p1}
                 </p>
                 <p className="font-body text-base leading-relaxed text-brown-600">
-                  Our warm and inviting salon is designed to be your retreat from
-                  the everyday. From the moment you walk in, you&apos;ll feel the
-                  difference — in the atmosphere, the attention to detail, and the
-                  genuine care we put into every visit.
+                  {t.salon.p2}
                 </p>
               </div>
 

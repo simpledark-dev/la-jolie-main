@@ -11,50 +11,19 @@ import {
   Car,
   Palette,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const faqs: { question: string; answer: string; icon: LucideIcon }[] = [
-  {
-    question: "Do I need an appointment?",
-    answer:
-      "We recommend booking in advance to guarantee your spot, but walk-ins are welcome when availability allows. You can book online through our website or call us at +1 (263) 552-9513.",
-    icon: CalendarCheck,
-  },
-  {
-    question: "How long do gel nails last?",
-    answer:
-      "Gel nails typically last 2–3 weeks with proper care. We recommend avoiding harsh chemicals, wearing gloves for household tasks, and applying cuticle oil regularly to keep them looking their best.",
-    icon: Clock,
-  },
-  {
-    question: "What products do you use?",
-    answer:
-      "We use high-quality, professional-grade gel and biogel products to ensure long-lasting results that are gentle on your natural nails. We prioritize both beauty and nail health in every service.",
-    icon: Sparkles,
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept cash, all major credit and debit cards, and Interac. Payment is collected at the end of your appointment.",
-    icon: CreditCard,
-  },
-  {
-    question: "Is there parking available?",
-    answer:
-      "Yes, free street parking is available along Boulevard Décarie near the salon. We're also conveniently located close to the Du Collège metro station for easy access by public transit.",
-    icon: Car,
-  },
-  {
-    question: "Do you offer nail art and custom designs?",
-    answer:
-      "Yes! From French tips and ombre to chrome finishes and hand-painted art, we offer a wide range of nail designs. Feel free to bring screenshots or inspiration — we'll work with you to create the perfect look.",
-    icon: Palette,
-  },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function FAQ() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqIcons = [CalendarCheck, Clock, Sparkles, CreditCard, Car, Palette];
+  const faqs = t.faq.questions.map((q, i) => ({
+    question: q.question,
+    answer: q.answer,
+    icon: faqIcons[i],
+  }));
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -75,17 +44,16 @@ export default function FAQ() {
           <ScrollReveal direction="left">
             <div className="max-lg:text-center lg:sticky lg:top-32">
               <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-                FAQ
+                {t.faq.label}
               </span>
               <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-                Common{" "}
+                {t.faq.headlinePart1}{" "}
                 <span className="italic font-light text-brown-600">
-                  Questions
+                  {t.faq.headlinePart2}
                 </span>
               </h2>
               <p className="mt-4 font-body text-base leading-relaxed text-brown-500 max-w-md max-lg:mx-auto">
-                Everything you need to know before your visit. Can&apos;t find
-                what you&apos;re looking for? Give us a call.
+                {t.faq.description}
               </p>
               <a
                 href="tel:+12635529513"

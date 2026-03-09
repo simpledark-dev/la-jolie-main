@@ -2,17 +2,20 @@
 
 import { Instagram, Heart } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const quickLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "Our Salon", href: "/#salon" },
-  { label: "Services", href: "/#services" },
-  { label: "Testimonials", href: "/#testimonials" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Contact", href: "/#contact" },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+  const quickLinks = [
+    { label: t.nav.home, href: "/#home" },
+    { label: t.nav.salon, href: "/#salon" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.testimonials, href: "/#testimonials" },
+    { label: t.nav.gallery, href: "/#gallery" },
+    { label: t.nav.contact, href: "/#contact" },
+  ];
+
   return (
     <footer className="relative bg-brown-800 text-warm-white/80 overflow-hidden">
       {/* Top gold line */}
@@ -27,8 +30,7 @@ export default function Footer() {
               La Jolie Main
             </h3>
             <p className="mt-4 font-body text-sm leading-relaxed text-warm-white/60 font-light max-w-xs">
-              A premium nail salon experience where beauty, elegance, and
-              self-care come together. Your hands, our passion.
+              {t.footer.brandDescription}
             </p>
             <a
               href="https://www.instagram.com/lajoliemain.mtl/"
@@ -44,7 +46,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-display text-lg font-semibold text-warm-white mb-6">
-              Quick Links
+              {t.footer.quickLinks}
             </h4>
             <nav className="space-y-3">
               {quickLinks.map((link) => (
@@ -62,7 +64,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="font-display text-lg font-semibold text-warm-white mb-6">
-              Contact
+              {t.footer.contact}
             </h4>
             <div className="space-y-3 font-body text-sm text-warm-white/60 font-light">
               <p>
@@ -79,9 +81,9 @@ export default function Footer() {
                 Saint-Laurent, QC H4L 3L1
               </p>
               <p>
-                Tue, Thu, Sun: 9 AM – 8 PM
+                {t.footer.hoursTuThuSun}
                 <br />
-                Mon, Wed, Fri, Sat: Closed
+                {t.footer.hoursClosed}
               </p>
             </div>
           </div>
@@ -91,10 +93,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-warm-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-warm-white/40 tracking-wide">
-            © {new Date().getFullYear()} La Jolie Main. All rights reserved.
+            © {new Date().getFullYear()} La Jolie Main. {t.footer.allRights}
           </p>
           <p className="font-body text-xs text-warm-white/40 tracking-wide flex items-center gap-1">
-            Made with <Heart size={12} className="text-pink-warm/60" /> for beautiful hands
+            {t.footer.madeWith} <Heart size={12} className="text-pink-warm/60" /> {t.footer.forBeautifulHands}
           </p>
         </div>
       </div>

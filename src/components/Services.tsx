@@ -4,8 +4,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { services, comboPackages, comboPackageIcon as Package } from "@/data/services";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Services() {
+  const { t } = useTranslation();
   return (
     <section id="services" className="relative py-24 lg:py-32 bg-warm-white grain-overlay overflow-hidden">
       {/* Subtle background accents */}
@@ -17,15 +19,14 @@ export default function Services() {
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto">
             <span className="font-body text-xs font-medium tracking-[0.2em] uppercase text-gold-dark">
-              Our Services
+              {t.services.label}
             </span>
             <h2 className="mt-4 font-display text-4xl sm:text-5xl font-semibold leading-tight text-brown-900">
-              Services{" "}
-              <span className="italic font-light text-brown-600">&</span> Pricing
+              {t.services.headlinePart1}{" "}
+              <span className="italic font-light text-brown-600">{t.services.headlinePart2}</span> {t.services.headlinePart3}
             </h2>
             <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
-              Every service is performed with care, precision, and the finest
-              products — because your nails deserve nothing less.
+              {t.services.description}
             </p>
           </div>
         </ScrollReveal>
@@ -44,7 +45,7 @@ export default function Services() {
                     <category.icon size={18} className="text-brown-600" />
                   </div>
                   <h3 className="font-display text-xl font-semibold text-brown-800">
-                    {category.category}
+                    {t.serviceCategories[category.slug as keyof typeof t.serviceCategories]?.category ?? category.category}
                   </h3>
                 </div>
 
@@ -56,7 +57,7 @@ export default function Services() {
                       className="flex items-baseline gap-2 py-2.5"
                     >
                       <span className="font-body text-sm text-brown-700">
-                        {item.name}
+                        {(t.serviceCategories[category.slug as keyof typeof t.serviceCategories]?.items as Record<string, string>)?.[item.name] ?? item.name}
                       </span>
                       <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
                       <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
@@ -71,7 +72,7 @@ export default function Services() {
                   href={`/services/${category.slug}`}
                   className="mt-5 inline-flex items-center gap-1.5 font-body text-xs font-medium tracking-wider uppercase text-gold-dark underline underline-offset-4 decoration-gold/40 transition-colors hover:text-brown-700 hover:decoration-brown-700/40"
                 >
-                  View Details
+                  {t.services.viewDetails}
                   <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>
@@ -91,11 +92,11 @@ export default function Services() {
                     <Package size={18} className="text-brown-700" />
                   </div>
                   <h3 className="font-display text-2xl font-semibold text-brown-800">
-                    Combo Packages
+                    {t.services.comboPackages}
                   </h3>
                 </div>
                 <p className="font-body text-sm text-brown-500 leading-relaxed">
-                  Save with our curated combinations — the perfect way to treat yourself.
+                  {t.services.comboDescription}
                 </p>
               </div>
 
@@ -106,7 +107,7 @@ export default function Services() {
                     className="flex items-baseline gap-2 py-3"
                   >
                     <span className="font-body text-sm font-medium text-brown-700">
-                      {item.name}
+                      {(t.comboPackages as Record<string, string>)[item.name] ?? item.name}
                     </span>
                     <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
                     <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800">
@@ -128,7 +129,7 @@ export default function Services() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
             >
-              Book Your Appointment
+              {t.services.bookAppointment}
               <ArrowRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-1"
