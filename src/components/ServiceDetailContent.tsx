@@ -75,8 +75,8 @@ export default function ServiceDetailContent({
                 "linear-gradient(to bottom right, #FBF8F4, #F9F0EC, #F3EDE4)",
             }}
           />
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-gold-light/20 to-transparent blur-3xl" />
-          <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blush/40 to-transparent blur-3xl" />
+          <div className="bg-blur-accent absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-gold-light/20 to-transparent blur-3xl" />
+          <div className="bg-blur-accent absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blush/40 to-transparent blur-3xl" />
         </div>
 
         <FloralBranch className="absolute top-16 right-6 lg:right-20 w-40 lg:w-56 h-auto text-gold/40 select-none pointer-events-none" />
@@ -123,7 +123,7 @@ export default function ServiceDetailContent({
 
       {/* Pricing */}
       <section className="relative py-16 lg:py-24 bg-cream grain-overlay overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-blush-light/30 rounded-full blur-[120px]" />
+        <div className="bg-blur-accent absolute top-0 right-0 w-80 h-80 bg-blush-light/30 rounded-full blur-[120px]" />
 
         <FloralWildflower className="absolute top-10 left-4 lg:left-16 w-28 lg:w-40 h-auto text-gold/30 select-none pointer-events-none" />
         <FloralScatter className="absolute bottom-6 right-0 lg:right-8 w-56 lg:w-80 h-auto text-brown-300/25 select-none pointer-events-none" />

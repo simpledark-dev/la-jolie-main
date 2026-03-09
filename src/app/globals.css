@@ -145,7 +145,7 @@ body {
   transform: none !important;
 }
 
-/* Grain texture overlay — uses a tiny repeating PNG-encoded noise instead of feTurbulence SVG filter */
+/* Grain texture overlay */
 .grain-overlay::after {
   content: "";
   position: absolute;
@@ -155,4 +155,59 @@ body {
   background-repeat: repeat;
   pointer-events: none;
   z-index: 1;
+}
+
+/* ───── Mobile performance optimizations ───── */
+@media (max-width: 1023px) {
+  /* Remove grain overlay — extra compositing layer on every section */
+  .grain-overlay::after {
+    display: none;
+  }
+
+  /* Stop infinite shimmer animation */
+  .gold-shimmer {
+    animation: none;
+    background-size: 100% auto;
+  }
+
+  /* Hide decorative blurred background circles on mobile.
+     These are huge (up to 800x800px) with blur-[100px]+ and
+     each one creates an expensive GPU compositing layer. */
+  .bg-blur-accent {
+    display: none !important;
+  }
+
+  /* Faster, cheaper scroll reveals on mobile */
+  .scroll-reveal-up,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-fade {
+    transition-duration: 0.5s;
+  }
+
+  .scroll-reveal-up { transform: translateY(24px); }
+  .scroll-reveal-left { transform: translateX(-24px); }
+  .scroll-reveal-right { transform: translateX(24px); }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-up,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+  }
+
+  .gold-shimmer {
+    animation: none;
+  }
 }

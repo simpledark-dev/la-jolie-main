@@ -20,9 +20,9 @@ export default function Hero() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom right, #FBF8F4, #F9F0EC, #F3EDE4)" }}
         />
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-gold-light/20 to-transparent blur-3xl" />
-        <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blush/40 to-transparent blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gold-light/10 blur-[120px]" />
+        <div className="bg-blur-accent absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-gold-light/20 to-transparent blur-3xl" />
+        <div className="bg-blur-accent absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blush/40 to-transparent blur-3xl" />
+        <div className="bg-blur-accent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gold-light/10 blur-[120px]" />
       </div>
 
       {/* Top gold shimmer line */}

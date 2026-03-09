@@ -91,8 +91,8 @@ export default function Gallery() {
   return (
     <section id="gallery" className="relative py-24 lg:py-32 bg-warm-white grain-overlay overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-gold-light/15 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blush/25 rounded-full blur-[100px]" />
+      <div className="bg-blur-accent absolute top-0 left-1/4 w-72 h-72 bg-gold-light/15 rounded-full blur-[100px]" />
+      <div className="bg-blur-accent absolute bottom-0 right-1/4 w-72 h-72 bg-blush/25 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section Header */}

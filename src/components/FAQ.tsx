@@ -35,8 +35,8 @@ export default function FAQ() {
       className="relative py-24 lg:py-32 bg-warm-white overflow-hidden"
     >
       {/* Background accents */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blush-light/30 rounded-full blur-[140px]" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gold-light/15 rounded-full blur-[120px]" />
+      <div className="bg-blur-accent absolute top-0 left-1/4 w-96 h-96 bg-blush-light/30 rounded-full blur-[140px]" />
+      <div className="bg-blur-accent absolute bottom-0 right-1/4 w-80 h-80 bg-gold-light/15 rounded-full blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
@@ -72,9 +72,9 @@ export default function FAQ() {
               return (
                 <ScrollReveal key={index} direction="right" delay={index * 80}>
                   <div
-                    className={`group rounded-2xl border overflow-hidden transition-all duration-300 ${
+                    className={`group rounded-2xl border overflow-hidden transition-[border-color,background-color] duration-200 ${
                       isOpen
-                        ? "border-gold/30 bg-cream/80 shadow-[0_8px_30px_rgba(44,30,16,0.05)]"
+                        ? "border-gold/30 bg-cream/80"
                         : "border-brown-100/40 bg-cream/40 hover:border-gold/20 hover:bg-cream/60"
                     }`}
                   >

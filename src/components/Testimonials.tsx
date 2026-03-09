@@ -14,34 +14,25 @@ export default function Testimonials() {
     rating: 5,
   }));
   const [current, setCurrent] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const totalRef = useRef(testimonials.length);
   totalRef.current = testimonials.length;
 
-  const goTo = useCallback(
-    (index: number) => {
-      if (isTransitioning) return;
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrent(index);
-        setIsTransitioning(false);
-      }, 300);
-    },
-    [isTransitioning]
-  );
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+  }, []);
 
   const next = useCallback(() => {
-    goTo((current + 1) % totalRef.current);
-  }, [current, goTo]);
+    setCurrent((c) => (c + 1) % totalRef.current);
+  }, []);
 
   const prev = useCallback(() => {
-    goTo((current - 1 + totalRef.current) % totalRef.current);
-  }, [current, goTo]);
+    setCurrent((c) => (c - 1 + totalRef.current) % totalRef.current);
+  }, []);
 
-  // Auto-advance — stable interval that doesn't reset on every render
+  // Auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % totalRef.current);
+      setCurrent((c) => (c + 1) % totalRef.current);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
@@ -51,7 +42,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="relative py-24 lg:py-32 bg-cream overflow-hidden">
       {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blush/30 rounded-full blur-[140px]" />
+      <div className="bg-blur-accent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blush/30 rounded-full blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section Header */}
@@ -77,11 +68,7 @@ export default function Testimonials() {
                 &ldquo;
               </div>
 
-              <div
-                className={`transition-opacity duration-300 ${
-                  isTransitioning ? "opacity-0" : "opacity-100"
-                }`}
-              >
+              <div>
                 {/* Stars */}
                 <div className="flex items-center justify-center gap-1 mb-6">
                   {Array.from({ length: active.rating }).map((_, i) => (

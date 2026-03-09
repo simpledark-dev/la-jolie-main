@@ -11,8 +11,8 @@ export default function Services() {
   return (
     <section id="services" className="relative py-24 lg:py-32 bg-warm-white grain-overlay overflow-hidden">
       {/* Subtle background accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blush-light/40 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold-light/20 rounded-full blur-[100px]" />
+      <div className="bg-blur-accent absolute top-0 right-0 w-96 h-96 bg-blush-light/40 rounded-full blur-[120px]" />
+      <div className="bg-blur-accent absolute bottom-0 left-0 w-80 h-80 bg-gold-light/20 rounded-full blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section Header */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useRef, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 import en from "./en";
 import fr from "./fr";
 import type { Translations } from "./en";
@@ -23,8 +23,6 @@ const translations: Record<Locale, Translations> = { en, fr };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("en");
-  const [transitioning, setTransitioning] = useState(false);
-  const pendingLocale = useRef<Locale | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("locale") as Locale | null;
@@ -34,34 +32,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const setLocale = useCallback((l: Locale) => {
-    if (l === locale) return;
-    pendingLocale.current = l;
-    setTransitioning(true);
-
-    // After fade-out completes, swap the locale
-    setTimeout(() => {
-      setLocaleState(l);
-      localStorage.setItem("locale", l);
-      pendingLocale.current = null;
-      // Small delay before fade-in to let React render new text
-      requestAnimationFrame(() => {
-        setTransitioning(false);
-      });
-    }, 250);
-  }, [locale]);
+    setLocaleState(l);
+    localStorage.setItem("locale", l);
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t: translations[locale] }}>
-      <div
-        className="locale-transition"
-        style={{
-          opacity: transitioning ? 0 : 1,
-          transform: transitioning ? "translateY(4px)" : "none",
-          transition: "opacity 0.25s ease, transform 0.25s ease",
-        }}
-      >
-        {children}
-      </div>
+      {children}
     </LanguageContext.Provider>
   );
 }
