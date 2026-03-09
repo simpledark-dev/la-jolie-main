@@ -16,10 +16,53 @@ const jost = Jost({
   display: "swap",
 });
 
+const siteUrl = "https://lajoliemain.ca";
+const siteName = "La Jolie Main";
+const siteDescription =
+  "Premium nail salon in Saint-Laurent, Montreal. Gel nails, manicure, pedicure, nail art & waxing — by appointment only. Book your visit today.";
+
 export const metadata: Metadata = {
-  title: "La Jolie Main — Premium Nail Salon",
-  description:
-    "Experience the art of beautiful nails. La Jolie Main offers premium manicure, pedicure, and nail art services in a warm, elegant atmosphere.",
+  metadataBase: new URL(siteUrl),
+  title: "La Jolie Main — Premium Nail Salon in Montreal",
+  description: siteDescription,
+  keywords: [
+    "nail salon Saint-Laurent Montreal",
+    "gel nails Montreal",
+    "manicure pedicure Saint-Laurent",
+    "nail art Montreal",
+    "La Jolie Main",
+    "Gel X nails Montreal",
+    "biogel nails",
+    "shellac manicure Montreal",
+    "waxing Saint-Laurent",
+    "nail salon Décarie",
+    "premium nail care Montreal",
+  ],
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: "La Jolie Main — Premium Nail Salon",
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
+    locale: "en_CA",
+    type: "website",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "La Jolie Main logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "La Jolie Main — Premium Nail Salon",
+    description: siteDescription,
+    images: ["/icon.png"],
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +75,49 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${jost.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "NailSalon",
+              name: "La Jolie Main",
+              description: siteDescription,
+              url: siteUrl,
+              telephone: "+12635529513",
+              image: `${siteUrl}/icon.png`,
+              priceRange: "$$",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "487 Bd Décarie, unit B",
+                addressLocality: "Saint-Laurent",
+                addressRegion: "QC",
+                postalCode: "H4L 3L1",
+                addressCountry: "CA",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 45.5087106,
+                longitude: -73.673414,
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Tuesday", "Thursday", "Sunday"],
+                  opens: "09:00",
+                  closes: "20:00",
+                },
+              ],
+              sameAs: ["https://www.instagram.com/lajoliemain.mtl/"],
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5.0",
+                reviewCount: "5",
+                bestRating: "5",
+              },
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

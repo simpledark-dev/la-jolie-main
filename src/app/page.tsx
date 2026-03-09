@@ -4,6 +4,7 @@ import OurSalon from "@/components/OurSalon";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Testimonials />
       <Gallery />
+      <FAQ />
       <Contact />
       <Footer />
     </main>

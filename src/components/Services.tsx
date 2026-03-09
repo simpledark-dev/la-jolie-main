@@ -1,76 +1,8 @@
 "use client";
 
-import { ArrowRight, Hand, Footprints, Layers, Palette, Sparkles, Package } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-const services: { category: string; icon: LucideIcon; items: { name: string; price: string }[] }[] = [
-  {
-    category: "Manicure",
-    icon: Hand,
-    items: [
-      { name: "Gel Nail Polish", price: "$30" },
-      { name: "Gel Nail Polish Removal", price: "$10" },
-      { name: "Manicure", price: "$30" },
-      { name: "Shellac Manicure", price: "$40" },
-      { name: "Nail Repair", price: "$7" },
-    ],
-  },
-  {
-    category: "Pedicure",
-    icon: Footprints,
-    items: [
-      { name: "Regular Pedicure", price: "$45" },
-      { name: "Shellac Pedicure", price: "$65" },
-      { name: "Nail Polish", price: "$35" },
-      { name: "Paraffin", price: "$20" },
-    ],
-  },
-  {
-    category: "Full Set / Extensions",
-    icon: Layers,
-    items: [
-      { name: "Biogel", price: "$65" },
-      { name: "Biogel Refill", price: "$50" },
-      { name: "Biogel / Gel X Removal", price: "$25" },
-      { name: "Gel X", price: "$60" },
-      { name: "Extra Long Nails", price: "+$5" },
-    ],
-  },
-  {
-    category: "Nail Design",
-    icon: Palette,
-    items: [
-      { name: "Nail Art / Design", price: "$5 – $25+" },
-      { name: "French Tip Add-on", price: "$15" },
-      { name: "Chrome / Special", price: "$15" },
-      { name: "Diamond Cat Eye", price: "$15+" },
-      { name: "Ombre", price: "$15+" },
-    ],
-  },
-  {
-    category: "Waxing",
-    icon: Sparkles,
-    items: [
-      { name: "Eyebrow", price: "$25" },
-      { name: "Chin", price: "$10" },
-      { name: "Mustache", price: "$10" },
-      { name: "Upper Lip", price: "$10" },
-      { name: "Full Face", price: "$35" },
-      { name: "Full Arm", price: "$40" },
-      { name: "Half Arm", price: "$30" },
-      { name: "Full Legs", price: "$55" },
-      { name: "Half Leg", price: "$35" },
-      { name: "Underarms", price: "$20" },
-    ],
-  },
-];
-
-const comboPackages = [
-  { name: "Classic Mani + Pedi", price: "$70" },
-  { name: "Shellac Mani + Pedi", price: "$100" },
-  { name: "New Set Biogel + Shellac Pedi", price: "$120" },
-  { name: "Refill Biogel + Shellac Pedi", price: "$105" },
-];
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { services, comboPackages, comboPackageIcon as Package } from "@/data/services";
 
 export default function Services() {
   return (
@@ -132,6 +64,15 @@ export default function Services() {
                   </div>
                 ))}
               </div>
+
+              {/* View Details Link */}
+              <Link
+                href={`/services/${category.slug}`}
+                className="mt-5 inline-flex items-center gap-1.5 font-body text-xs font-medium tracking-wider uppercase text-gold-dark transition-colors hover:text-brown-700"
+              >
+                View Details
+                <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
             </div>
           ))}
         </div>
