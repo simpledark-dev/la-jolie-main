@@ -68,7 +68,7 @@ export default function Services() {
               {/* View Details Link */}
               <Link
                 href={`/services/${category.slug}`}
-                className="mt-5 inline-flex items-center gap-1.5 font-body text-xs font-medium tracking-wider uppercase text-gold-dark transition-colors hover:text-brown-700"
+                className="mt-5 inline-flex items-center gap-1.5 font-body text-xs font-medium tracking-wider uppercase text-gold-dark underline underline-offset-4 decoration-gold/40 transition-colors hover:text-brown-700 hover:decoration-brown-700/40"
               >
                 View Details
                 <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5" />

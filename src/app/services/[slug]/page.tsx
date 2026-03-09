@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { services, getServiceBySlug, getRelatedCombos } from "@/data/services";
+import ImageCarousel from "@/components/ImageCarousel";
 import type { Metadata } from "next";
 
 interface Props {
@@ -93,38 +93,11 @@ export default async function ServiceDetailPage({ params }: Props) {
       {/* Image Showcase */}
       {service.images.length > 0 && (
         <section className="relative py-16 lg:py-20 bg-warm-white overflow-hidden">
-          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
-            <div
-              className={`grid gap-4 ${
-                service.images.length === 1
-                  ? "grid-cols-1 max-w-lg mx-auto"
-                  : service.images.length === 2
-                    ? "grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto"
-                    : service.images.length === 3
-                      ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                      : "grid-cols-2 lg:grid-cols-4"
-              }`}
-            >
-              {service.images.map((img, i) => (
-                <div
-                  key={i}
-                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-brown-100/40 shadow-[0_8px_30px_rgba(44,30,16,0.06)]"
-                >
-                  <Image
-                    src={img}
-                    alt={`${service.category} example ${i + 1}`}
-                    fill
-                    sizes={
-                      service.images.length <= 2
-                        ? "(max-width: 640px) 100vw, 50vw"
-                        : "(max-width: 640px) 50vw, 25vw"
-                    }
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brown-900/10 to-transparent" />
-                </div>
-              ))}
-            </div>
+          <div className="relative z-10 mx-auto max-w-2xl px-6 lg:px-10">
+            <ImageCarousel
+              images={service.images}
+              alt={service.category}
+            />
           </div>
         </section>
       )}
