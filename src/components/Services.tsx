@@ -1,10 +1,12 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Hand, Footprints, Layers, Palette, Sparkles, Package } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const services = [
+const services: { category: string; icon: LucideIcon; items: { name: string; price: string }[] }[] = [
   {
     category: "Manicure",
+    icon: Hand,
     items: [
       { name: "Gel Nail Polish", price: "$30" },
       { name: "Gel Nail Polish Removal", price: "$10" },
@@ -15,6 +17,7 @@ const services = [
   },
   {
     category: "Pedicure",
+    icon: Footprints,
     items: [
       { name: "Regular Pedicure", price: "$45" },
       { name: "Shellac Pedicure", price: "$65" },
@@ -24,6 +27,7 @@ const services = [
   },
   {
     category: "Full Set / Extensions",
+    icon: Layers,
     items: [
       { name: "Biogel", price: "$65" },
       { name: "Biogel Refill", price: "$50" },
@@ -34,6 +38,7 @@ const services = [
   },
   {
     category: "Nail Design",
+    icon: Palette,
     items: [
       { name: "Nail Art / Design", price: "$5 – $25+" },
       { name: "French Tip Add-on", price: "$15" },
@@ -44,6 +49,7 @@ const services = [
   },
   {
     category: "Waxing",
+    icon: Sparkles,
     items: [
       { name: "Eyebrow", price: "$25" },
       { name: "Chin", price: "$10" },
@@ -57,15 +63,13 @@ const services = [
       { name: "Underarms", price: "$20" },
     ],
   },
-  {
-    category: "Combo Packages",
-    items: [
-      { name: "Classic Mani + Pedi", price: "$70" },
-      { name: "Shellac Mani + Pedi", price: "$100" },
-      { name: "New Set Biogel + Shellac Pedi", price: "$120" },
-      { name: "Refill Biogel + Shellac Pedi", price: "$105" },
-    ],
-  },
+];
+
+const comboPackages = [
+  { name: "Classic Mani + Pedi", price: "$70" },
+  { name: "Shellac Mani + Pedi", price: "$100" },
+  { name: "New Set Biogel + Shellac Pedi", price: "$120" },
+  { name: "Refill Biogel + Shellac Pedi", price: "$105" },
 ];
 
 export default function Services() {
@@ -96,28 +100,32 @@ export default function Services() {
           {services.map((category) => (
             <div
               key={category.category}
-              className="group bg-cream/60 backdrop-blur-sm rounded-2xl border border-brown-100/40 p-7 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(44,30,16,0.06)] hover:border-gold/30"
+              className="group relative bg-cream/60 backdrop-blur-sm rounded-2xl border border-brown-100/40 p-7 pt-8 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(44,30,16,0.06)] hover:border-gold/30 overflow-hidden"
             >
-              {/* Category Title */}
-              <div className="flex items-center gap-3 mb-5">
+              {/* Gold top accent */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+
+              {/* Category Header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blush flex items-center justify-center transition-colors duration-300 group-hover:bg-gold-light">
+                  <category.icon size={18} className="text-brown-600" />
+                </div>
                 <h3 className="font-display text-xl font-semibold text-brown-800">
                   {category.category}
                 </h3>
-                <div className="flex-1 h-[1px] bg-gradient-to-r from-brown-100/60 to-transparent" />
               </div>
 
               {/* Items */}
               <div className="space-y-0">
-                {category.items.map((item, i) => (
+                {category.items.map((item) => (
                   <div
                     key={item.name}
-                    className={`flex items-center justify-between gap-3 py-2.5 ${
-                      i < category.items.length - 1 ? "border-b border-brown-100/40" : ""
-                    }`}
+                    className="flex items-baseline gap-2 py-2.5"
                   >
                     <span className="font-body text-sm text-brown-700">
                       {item.name}
                     </span>
+                    <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
                     <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
                       {item.price}
                     </span>
@@ -128,15 +136,56 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Combo Packages — Featured */}
+        <div className="mt-8 relative rounded-2xl border border-gold/30 bg-gradient-to-br from-cream via-warm-white to-blush-light/30 p-8 md:p-10 overflow-hidden">
+          {/* Gold shimmer top line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] gold-shimmer" />
+
+          <div className="flex flex-col md:flex-row md:items-start md:gap-12">
+            {/* Left — title */}
+            <div className="md:w-1/3 mb-6 md:mb-0">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold-light/50 flex items-center justify-center">
+                  <Package size={18} className="text-brown-700" />
+                </div>
+                <h3 className="font-display text-2xl font-semibold text-brown-800">
+                  Combo Packages
+                </h3>
+              </div>
+              <p className="font-body text-sm text-brown-500 leading-relaxed">
+                Save with our curated combinations — the perfect way to treat yourself.
+              </p>
+            </div>
+
+            {/* Right — items */}
+            <div className="md:flex-1 grid sm:grid-cols-2 gap-x-8 gap-y-0">
+              {comboPackages.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex items-baseline gap-2 py-3"
+                >
+                  <span className="font-body text-sm font-medium text-brown-700">
+                    {item.name}
+                  </span>
+                  <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
+                  <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800">
+                    {item.price}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="mt-14 text-center">
           <a
             href="https://bellebooking.com/center/lynn-signature-nails"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 font-body text-sm font-medium tracking-wider uppercase text-brown-600 transition-colors duration-300 hover:text-gold-dark"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
           >
-            Ready to book your experience?
+            Book Your Appointment
             <ArrowRight
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-1"
