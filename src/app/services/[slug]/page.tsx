@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { services, getServiceBySlug, getRelatedCombos } from "@/data/services";
 import ImageCarousel from "@/components/ImageCarousel";
+import { FloralBranch, FloralPeony, FloralWildflower, FloralScatter } from "@/components/FloralDecorations";
 import type { Metadata } from "next";
 
 interface Props {
@@ -58,6 +59,10 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-blush/40 to-transparent blur-3xl" />
         </div>
 
+        {/* Floral decorations — hero */}
+        <FloralBranch className="absolute top-16 right-6 lg:right-20 w-40 lg:w-56 h-auto text-gold/40 select-none pointer-events-none" />
+        <FloralPeony className="absolute bottom-4 left-4 lg:left-16 w-36 lg:w-48 h-auto text-blush-dark/30 select-none pointer-events-none" />
+
         {/* Top gold shimmer */}
         <div className="absolute top-0 left-0 right-0 h-[1px] gold-shimmer" />
 
@@ -105,6 +110,11 @@ export default async function ServiceDetailPage({ params }: Props) {
       {/* Pricing */}
       <section className="relative py-16 lg:py-24 bg-cream grain-overlay overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-blush-light/30 rounded-full blur-[120px]" />
+
+        {/* Floral decorations — pricing */}
+        <FloralWildflower className="absolute top-10 left-4 lg:left-16 w-28 lg:w-40 h-auto text-gold/30 select-none pointer-events-none" />
+        <FloralScatter className="absolute bottom-6 right-0 lg:right-8 w-56 lg:w-80 h-auto text-brown-300/25 select-none pointer-events-none" />
+        <FloralBranch className="absolute -bottom-10 left-1/2 w-32 lg:w-44 h-auto text-blush-dark/20 select-none pointer-events-none rotate-12" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-10">
           {/* Section header */}

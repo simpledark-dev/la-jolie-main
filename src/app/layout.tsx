@@ -50,18 +50,18 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "La Jolie Main logo",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "La Jolie Main — Premium Nail Salon in Montreal",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "La Jolie Main — Premium Nail Salon",
     description: siteDescription,
-    images: ["/icon.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
