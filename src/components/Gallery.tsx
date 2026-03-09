@@ -101,7 +101,7 @@ export default function Gallery() {
             The{" "}
             <span className="italic font-light text-brown-600">Gallery</span>
           </h2>
-          <p className="mt-4 font-body text-base leading-relaxed text-brown-400 font-light">
+          <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
             A glimpse into the artistry and care that goes into every set of nails.
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function Gallery() {
         {/* Instagram CTA */}
         <div className="mt-14 text-center">
           <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/50 backdrop-blur-sm">
-            <p className="font-body text-sm text-brown-500 font-light">
+            <p className="font-body text-sm text-brown-600">
               Love what you see? Follow us for daily inspiration
             </p>
             <a

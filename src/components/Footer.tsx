@@ -24,7 +24,7 @@ export default function Footer() {
             <h3 className="font-display text-2xl font-semibold text-warm-white tracking-wide">
               La Jolie Main
             </h3>
-            <p className="mt-4 font-body text-sm leading-relaxed text-warm-white/50 font-light max-w-xs">
+            <p className="mt-4 font-body text-sm leading-relaxed text-warm-white/60 font-light max-w-xs">
               A premium nail salon experience where beauty, elegance, and
               self-care come together. Your hands, our passion.
             </p>
@@ -49,7 +49,7 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block font-body text-sm text-warm-white/50 transition-colors duration-300 hover:text-gold-light"
+                  className="block font-body text-sm text-warm-white/60 transition-colors duration-300 hover:text-gold-light"
                 >
                   {link.label}
                 </a>
@@ -62,7 +62,7 @@ export default function Footer() {
             <h4 className="font-display text-lg font-semibold text-warm-white mb-6">
               Contact
             </h4>
-            <div className="space-y-3 font-body text-sm text-warm-white/50 font-light">
+            <div className="space-y-3 font-body text-sm text-warm-white/60 font-light">
               <p>
                 <a
                   href="tel:+12635529513"
@@ -87,10 +87,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-warm-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-warm-white/30 tracking-wide">
+          <p className="font-body text-xs text-warm-white/40 tracking-wide">
             © {new Date().getFullYear()} La Jolie Main. All rights reserved.
           </p>
-          <p className="font-body text-xs text-warm-white/30 tracking-wide flex items-center gap-1">
+          <p className="font-body text-xs text-warm-white/40 tracking-wide flex items-center gap-1">
             Made with <Heart size={12} className="text-pink-warm/60" /> for beautiful hands
           </p>
         </div>

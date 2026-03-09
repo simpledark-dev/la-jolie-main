@@ -85,7 +85,7 @@ export default function Services() {
             Services{" "}
             <span className="italic font-light text-brown-600">&</span> Pricing
           </h2>
-          <p className="mt-4 font-body text-base leading-relaxed text-brown-400 font-light">
+          <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
             Every service is performed with care, precision, and the finest
             products — because your nails deserve nothing less.
           </p>
@@ -107,13 +107,18 @@ export default function Services() {
               </div>
 
               {/* Items */}
-              <div className="space-y-3">
-                {category.items.map((item) => (
-                  <div key={item.name} className="flex items-center justify-between gap-3">
-                    <span className="font-body text-sm text-brown-600 font-light">
+              <div className="space-y-0">
+                {category.items.map((item, i) => (
+                  <div
+                    key={item.name}
+                    className={`flex items-center justify-between gap-3 py-2.5 ${
+                      i < category.items.length - 1 ? "border-b border-brown-100/40" : ""
+                    }`}
+                  >
+                    <span className="font-body text-sm text-brown-700">
                       {item.name}
                     </span>
-                    <span className="flex-shrink-0 font-display text-base font-semibold text-gold-dark">
+                    <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
                       {item.price}
                     </span>
                   </div>

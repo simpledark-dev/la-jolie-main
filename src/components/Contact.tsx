@@ -19,7 +19,7 @@ export default function Contact() {
             Visit{" "}
             <span className="italic font-light text-brown-600">Us</span>
           </h2>
-          <p className="mt-4 font-body text-base leading-relaxed text-brown-400 font-light">
+          <p className="mt-4 font-body text-base leading-relaxed text-brown-500">
             We&apos;d love to welcome you. Drop by, call, or send us a message
             — we&apos;re always happy to help you find the perfect treatment.
           </p>
@@ -39,7 +39,7 @@ export default function Contact() {
                 </h3>
                 <a
                   href="tel:+12635529513"
-                  className="mt-1 font-body text-base text-brown-500 font-light transition-colors hover:text-gold-dark"
+                  className="mt-1 font-body text-base text-brown-600 transition-colors hover:text-gold-dark"
                 >
                   +1 (263) 552-9513
                 </a>
@@ -59,7 +59,7 @@ export default function Contact() {
                   href="https://www.instagram.com/lajoliemain.mtl/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 font-body text-base text-brown-500 font-light transition-colors hover:text-gold-dark"
+                  className="mt-1 font-body text-base text-brown-600 transition-colors hover:text-gold-dark"
                 >
                   @lajoliemain.mtl
                 </a>
@@ -75,7 +75,7 @@ export default function Contact() {
                 <h3 className="font-display text-lg font-semibold text-brown-800">
                   Address
                 </h3>
-                <p className="mt-1 font-body text-base text-brown-500 font-light leading-relaxed">
+                <p className="mt-1 font-body text-base text-brown-600 leading-relaxed">
                   487 Bd Décarie, unit B
                   <br />
                   Saint-Laurent, QC H4L 3L1, Canada
@@ -92,7 +92,7 @@ export default function Contact() {
                 <h3 className="font-display text-lg font-semibold text-brown-800">
                   Hours
                 </h3>
-                <div className="mt-1 font-body text-base text-brown-500 font-light space-y-0.5">
+                <div className="mt-1 font-body text-base text-brown-600 space-y-0.5">
                   <p>Tue, Thu, Sun: 9:00 AM – 8:00 PM</p>
                   <p>Mon, Wed, Fri, Sat: Closed</p>
                 </div>

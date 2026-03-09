@@ -67,12 +67,12 @@ export default function OurSalon() {
             </h2>
 
             <div className="mt-6 space-y-4">
-              <p className="font-body text-base leading-relaxed text-brown-500 font-light">
+              <p className="font-body text-base leading-relaxed text-brown-600">
                 At La Jolie Main, we believe that nail care is more than a
                 service — it&apos;s a moment of self-care, a ritual of beauty, and
                 a personal expression of elegance.
               </p>
-              <p className="font-body text-base leading-relaxed text-brown-500 font-light">
+              <p className="font-body text-base leading-relaxed text-brown-600">
                 Our warm and inviting salon is designed to be your retreat from
                 the everyday. From the moment you walk in, you&apos;ll feel the
                 difference — in the atmosphere, the attention to detail, and the
@@ -95,7 +95,7 @@ export default function OurSalon() {
                       <h3 className="font-display text-lg font-semibold text-brown-800">
                         {item.title}
                       </h3>
-                      <p className="mt-1 font-body text-sm leading-relaxed text-brown-400 font-light">
+                      <p className="mt-1 font-body text-sm leading-relaxed text-brown-500">
                         {item.text}
                       </p>
                     </div>
