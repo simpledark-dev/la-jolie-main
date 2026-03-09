@@ -13,7 +13,6 @@ interface ImageCarouselProps {
 export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -39,30 +38,36 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [next, prev]);
 
-  // Touch/drag handlers
-  const handleDragStart = (clientX: number) => {
+  // Touch/drag handlers — use refs to avoid re-creating on every render
+  const dragStateRef = useRef({ isDragging: false, start: 0, offset: 0 });
+
+  const handleDragStart = useCallback((clientX: number) => {
+    dragStateRef.current = { isDragging: true, start: clientX, offset: 0 };
     setIsDragging(true);
-    setDragStart(clientX);
     setDragOffset(0);
-  };
+  }, []);
 
-  const handleDragMove = (clientX: number) => {
-    if (!isDragging) return;
-    setDragOffset(clientX - dragStart);
-  };
+  const handleDragMove = useCallback((clientX: number) => {
+    if (!dragStateRef.current.isDragging) return;
+    const offset = clientX - dragStateRef.current.start;
+    dragStateRef.current.offset = offset;
+    setDragOffset(offset);
+  }, []);
 
-  const handleDragEnd = () => {
-    if (!isDragging) return;
+  const handleDragEnd = useCallback(() => {
+    if (!dragStateRef.current.isDragging) return;
+    const offset = dragStateRef.current.offset;
+    dragStateRef.current.isDragging = false;
     setIsDragging(false);
 
     const threshold = 60;
-    if (dragOffset < -threshold) {
+    if (offset < -threshold) {
       next();
-    } else if (dragOffset > threshold) {
+    } else if (offset > threshold) {
       prev();
     }
     setDragOffset(0);
-  };
+  }, [next, prev]);
 
   const translateX = isDragging
     ? `calc(-${current * 100}% + ${dragOffset}px)`
@@ -114,7 +119,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               onClick={prev}
               disabled={current === 0}
               aria-label="Previous image"
-              className="absolute top-1/2 left-3 sm:left-4 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-warm-white/90 backdrop-blur-sm rounded-full border border-brown-100/60 shadow-[0_4px_16px_rgba(44,30,16,0.08)] flex items-center justify-center text-brown-500 transition-all duration-300 hover:border-gold/40 hover:text-gold-dark disabled:opacity-0 disabled:pointer-events-none"
+              className="absolute top-1/2 left-3 sm:left-4 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-warm-white/95 rounded-full border border-brown-100/60 shadow-[0_4px_16px_rgba(44,30,16,0.08)] flex items-center justify-center text-brown-500 transition-all duration-300 hover:border-gold/40 hover:text-gold-dark disabled:opacity-0 disabled:pointer-events-none"
             >
               <ChevronLeft size={20} />
             </button>
@@ -122,7 +127,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               onClick={next}
               disabled={current === total - 1}
               aria-label="Next image"
-              className="absolute top-1/2 right-3 sm:right-4 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-warm-white/90 backdrop-blur-sm rounded-full border border-brown-100/60 shadow-[0_4px_16px_rgba(44,30,16,0.08)] flex items-center justify-center text-brown-500 transition-all duration-300 hover:border-gold/40 hover:text-gold-dark disabled:opacity-0 disabled:pointer-events-none"
+              className="absolute top-1/2 right-3 sm:right-4 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-warm-white/95 rounded-full border border-brown-100/60 shadow-[0_4px_16px_rgba(44,30,16,0.08)] flex items-center justify-center text-brown-500 transition-all duration-300 hover:border-gold/40 hover:text-gold-dark disabled:opacity-0 disabled:pointer-events-none"
             >
               <ChevronRight size={20} />
             </button>
@@ -131,7 +136,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
 
         {/* Counter badge */}
         {total > 1 && (
-          <div className="absolute bottom-4 right-4 bg-brown-800/70 backdrop-blur-sm text-warm-white font-body text-xs tracking-wider px-3 py-1.5 rounded-full">
+          <div className="absolute bottom-4 right-4 bg-brown-800/80 text-warm-white font-body text-xs tracking-wider px-3 py-1.5 rounded-full">
             {current + 1} / {total}
           </div>
         )}

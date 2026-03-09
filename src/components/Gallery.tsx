@@ -166,7 +166,7 @@ export default function Gallery() {
         {/* Instagram CTA */}
         <ScrollReveal delay={100}>
           <div className="mt-14 text-center">
-            <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/50 backdrop-blur-sm">
+            <div className="inline-flex flex-col items-center gap-4 px-10 py-8 rounded-2xl border border-brown-100/40 bg-cream/70">
               <p className="font-body text-sm text-brown-600">
                 {t.gallery.followCta}
               </p>

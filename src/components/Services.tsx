@@ -35,7 +35,7 @@ export default function Services() {
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((category, i) => (
             <ScrollReveal key={category.category} delay={i * 100}>
-              <div className="group relative bg-cream/60 backdrop-blur-sm rounded-2xl border border-brown-100/40 p-7 pt-8 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(44,30,16,0.06)] hover:border-gold/30 overflow-hidden h-full">
+              <div className="group relative bg-cream/60 rounded-2xl border border-brown-100/40 p-7 pt-8 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(44,30,16,0.06)] hover:border-gold/30 overflow-hidden h-full">
                 {/* Gold top accent */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 

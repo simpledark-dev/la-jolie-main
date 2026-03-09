@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useTranslation } from "@/i18n/LanguageContext";
@@ -15,6 +15,8 @@ export default function Testimonials() {
   }));
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const totalRef = useRef(testimonials.length);
+  totalRef.current = testimonials.length;
 
   const goTo = useCallback(
     (index: number) => {
@@ -29,18 +31,20 @@ export default function Testimonials() {
   );
 
   const next = useCallback(() => {
-    goTo((current + 1) % testimonials.length);
+    goTo((current + 1) % totalRef.current);
   }, [current, goTo]);
 
   const prev = useCallback(() => {
-    goTo((current - 1 + testimonials.length) % testimonials.length);
+    goTo((current - 1 + totalRef.current) % totalRef.current);
   }, [current, goTo]);
 
-  // Auto-advance
+  // Auto-advance — stable interval that doesn't reset on every render
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % totalRef.current);
+    }, 6000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, []);
 
   const active = testimonials[current];
 

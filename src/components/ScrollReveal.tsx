@@ -2,6 +2,24 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
+// Single shared IntersectionObserver for all ScrollReveal instances
+const callbacks = new Map<Element, (entry: IntersectionObserverEntry) => void>();
+let sharedObserver: IntersectionObserver | null = null;
+
+function getObserver() {
+  if (sharedObserver) return sharedObserver;
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const cb = callbacks.get(entry.target);
+        if (cb) cb(entry);
+      }
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+  return sharedObserver;
+}
+
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
@@ -21,20 +39,26 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.classList.add("scroll-revealed");
-          }, delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
+    const observer = getObserver();
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+    callbacks.set(el, (entry) => {
+      if (entry.isIntersecting) {
+        timeoutId = setTimeout(() => {
+          el.classList.add("scroll-revealed");
+        }, delay);
+        observer.unobserve(el);
+        callbacks.delete(el);
+      }
+    });
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      observer.unobserve(el);
+      callbacks.delete(el);
+    };
   }, [delay]);
 
   const directionClass =
