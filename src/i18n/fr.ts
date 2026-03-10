@@ -265,6 +265,15 @@ const fr: Translations = {
     comboPackages: "Forfaits Combo",
     bookThisService: "Réserver ce Service",
   },
+
+  // Booking Modal
+  booking: {
+    title: "Prendre Rendez-vous",
+    subtitle: "Comment souhaitez-vous réserver ?",
+    online: "Réserver en Ligne",
+    onlineDescription: "Planifiez sur BelleBooking",
+    call: "Appelez-nous",
+  },
 };
 
 export default fr;

@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { useBooking } from "@/components/BookingProvider";
 import heroImg1 from "@/assets/gallery/pastel-aurora-chrome.jpg";
 import heroImg2 from "@/assets/gallery/french-butterfly-white.jpg";
 import heroImg3 from "@/assets/gallery/red-french-floral.jpg";
 
 export default function Hero() {
   const { t } = useTranslation();
+  const openBooking = useBooking();
   return (
     <section
       id="home"
@@ -61,18 +63,16 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="animate-fade-in-up animation-delay-600 mt-10 flex flex-col sm:flex-row max-lg:items-center max-lg:justify-center items-start gap-4">
-              <a
-                href="https://bellebooking.com/center/lynn-signature-nails"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
+              <button
+                onClick={openBooking}
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5 cursor-pointer"
               >
                 {t.hero.cta}
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </button>
               <a
                 href="#services"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-brown-300/60 text-brown-600 font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:border-gold hover:text-brown-800 hover:bg-warm-white/50"

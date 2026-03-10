@@ -8,6 +8,7 @@ import { FloralBranch, FloralPeony, FloralWildflower, FloralScatter } from "@/co
 import ScrollReveal from "@/components/ScrollReveal";
 import { useTranslation } from "@/i18n/LanguageContext";
 import type { StaticImageData } from "next/image";
+import { useBooking } from "@/components/BookingProvider";
 
 const iconMap: Record<string, LucideIcon> = {
   manicure: Hand,
@@ -45,6 +46,7 @@ export default function ServiceDetailContent({
   relatedCombos,
 }: ServiceDetailContentProps) {
   const { t } = useTranslation();
+  const openBooking = useBooking();
   const Icon = iconMap[slug] ?? Hand;
 
   const cat = t.serviceCategories[slug as keyof typeof t.serviceCategories];
@@ -195,18 +197,16 @@ export default function ServiceDetailContent({
 
           <ScrollReveal delay={200}>
             <div className="mt-12 text-center">
-              <a
-                href="https://bellebooking.com/center/lynn-signature-nails"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
+              <button
+                onClick={openBooking}
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5 cursor-pointer"
               >
                 {t.serviceDetail.bookThisService}
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </button>
             </div>
           </ScrollReveal>
         </div>

@@ -182,7 +182,7 @@ const en = {
     viewMore: "View More",
     remaining: "remaining",
     showLess: "Show Less",
-    followCta: "Love what you see? Follow us for daily inspiration",
+    followCta: "See more on our Instagram",
     followButton: "Follow @lajoliemain.mtl",
   },
 
@@ -262,6 +262,15 @@ const en = {
     servicesLabel: "Services",
     comboPackages: "Combo Packages",
     bookThisService: "Book This Service",
+  },
+
+  // Booking Modal
+  booking: {
+    title: "Book Your Appointment",
+    subtitle: "How would you like to book?",
+    online: "Book Online",
+    onlineDescription: "Schedule instantly on BelleBooking",
+    call: "Call Us",
   },
 };
 

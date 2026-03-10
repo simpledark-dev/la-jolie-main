@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { BookingProvider } from "@/components/BookingProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -121,8 +122,10 @@ export default function RootLayout({
           }}
         />
         <LanguageProvider>
+        <BookingProvider>
         <ScrollToTop />
         {children}
+        </BookingProvider>
         </LanguageProvider>
       </body>
     </html>

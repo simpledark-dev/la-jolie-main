@@ -5,9 +5,11 @@ import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { services, comboPackages, comboPackageIcon as Package } from "@/data/services";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { useBooking } from "@/components/BookingProvider";
 
 export default function Services() {
   const { t } = useTranslation();
+  const openBooking = useBooking();
   return (
     <section id="services" className="relative py-24 lg:py-32 bg-warm-white grain-overlay overflow-hidden">
       {/* Subtle background accents */}
@@ -123,18 +125,16 @@ export default function Services() {
         {/* CTA */}
         <ScrollReveal delay={300}>
           <div className="mt-14 text-center">
-            <a
-              href="https://bellebooking.com/center/lynn-signature-nails"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5"
+            <button
+              onClick={openBooking}
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_8px_30px_rgba(92,64,51,0.3)] hover:-translate-y-0.5 cursor-pointer"
             >
               {t.services.bookAppointment}
               <ArrowRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </a>
+            </button>
           </div>
         </ScrollReveal>
       </div>

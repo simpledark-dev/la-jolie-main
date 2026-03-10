@@ -8,10 +8,12 @@ import logo from "@/assets/logo-2.png";
 import { services } from "@/data/services";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { useSmoothHashScroll } from "@/hooks/useSmoothHashScroll";
+import { useBooking } from "@/components/BookingProvider";
 
 export default function Navbar() {
   const { locale, setLocale, t } = useTranslation();
   useSmoothHashScroll();
+  const openBooking = useBooking();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -176,14 +178,12 @@ export default function Navbar() {
               {locale === "en" ? "FR" : "EN"}
             </button>
 
-            <a
-              href="https://bellebooking.com/center/lynn-signature-nails"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"
+            <button
+              onClick={openBooking}
+              className="hidden lg:inline-flex items-center px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)] cursor-pointer"
             >
               {t.nav.bookAppointment}
-            </a>
+            </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 text-brown-700 transition-colors hover:text-gold"
@@ -272,15 +272,12 @@ export default function Navbar() {
                 </a>
               )
             )}
-            <a
-              href="https://bellebooking.com/center/lynn-signature-nails"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center mt-4 px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800"
+            <button
+              onClick={() => { setMobileOpen(false); openBooking(); }}
+              className="inline-flex items-center mt-4 px-7 py-2.5 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 cursor-pointer"
             >
               {t.nav.bookAppointment}
-            </a>
+            </button>
           </div>
         </div>
       </div>
