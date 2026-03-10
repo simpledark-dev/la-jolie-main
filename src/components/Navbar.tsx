@@ -7,9 +7,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo-2.png";
 import { services } from "@/data/services";
 import { useTranslation } from "@/i18n/LanguageContext";
+import { useSmoothHashScroll } from "@/hooks/useSmoothHashScroll";
 
 export default function Navbar() {
   const { locale, setLocale, t } = useTranslation();
+  useSmoothHashScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);

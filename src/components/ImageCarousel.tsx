@@ -15,6 +15,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const thumbStripRef = useRef<HTMLDivElement>(null);
 
   const total = images.length;
 
@@ -27,6 +28,18 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
 
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    const strip = thumbStripRef.current;
+    if (!strip) return;
+    const thumb = strip.children[current] as HTMLElement | undefined;
+    if (!thumb) return;
+    const stripRect = strip.getBoundingClientRect();
+    const thumbRect = thumb.getBoundingClientRect();
+    const offset = thumbRect.left - stripRect.left - stripRect.width / 2 + thumbRect.width / 2;
+    strip.parentElement?.scrollBy({ left: offset, behavior: "smooth" });
+  }, [current]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -144,27 +157,29 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
 
       {/* Thumbnail strip */}
       {total > 1 && (
-        <div className="mt-4 flex gap-2.5 justify-center">
-          {images.map((img, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`View image ${i + 1}`}
-              className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 flex-shrink-0 ${
-                i === current
-                  ? "border-gold shadow-[0_2px_12px_rgba(201,169,110,0.3)] scale-105"
-                  : "border-brown-100/40 opacity-60 hover:opacity-90 hover:border-brown-200"
-              }`}
-            >
-              <Image
-                src={img}
-                alt={`${alt} thumbnail ${i + 1}`}
-                fill
-                sizes="80px"
-                className="object-cover"
-              />
-            </button>
-          ))}
+        <div className="mt-4 overflow-x-auto scrollbar-hide">
+          <div ref={thumbStripRef} className="flex gap-2.5 w-max mx-auto px-1 py-1">
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`View image ${i + 1}`}
+                className={`relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 flex-shrink-0 ${
+                  i === current
+                    ? "border-gold shadow-[0_2px_12px_rgba(201,169,110,0.3)] scale-105"
+                    : "border-brown-100/40 opacity-60 hover:opacity-90 hover:border-brown-200"
+                }`}
+              >
+                <Image
+                  src={img}
+                  alt={`${alt} thumbnail ${i + 1}`}
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

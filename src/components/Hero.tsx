@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
 import heroImg1 from "@/assets/gallery/pastel-aurora-chrome.jpg";
 import heroImg2 from "@/assets/gallery/french-butterfly-white.jpg";
-import heroImg3 from "@/assets/gallery/red-french-floral-2.jpg";
+import heroImg3 from "@/assets/gallery/red-french-floral.jpg";
 
 export default function Hero() {
   const { t } = useTranslation();

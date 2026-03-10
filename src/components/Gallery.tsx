@@ -15,14 +15,20 @@ import nudeBlushClassic from "@/assets/gallery/nude-blush-classic.jpg";
 import frenchButterflyWhite from "@/assets/gallery/french-butterfly-white.jpg";
 import redFrenchFloral from "@/assets/gallery/red-french-floral.jpg";
 import whiteBowFrenchSquare from "@/assets/gallery/white-bow-french-square.jpeg";
-import leopardBowFrench2 from "@/assets/gallery/leopard-bow-french-2.jpg";
-import pastelAuroraChrome2 from "@/assets/gallery/pastel-aurora-chrome-2.jpg";
-import pearlShimmerNatural2 from "@/assets/gallery/pearl-shimmer-natural-2.jpg";
-import floralBlossomArt2 from "@/assets/gallery/floral-blossom-art-2.jpg";
-import nudeBlushClassic2 from "@/assets/gallery/nude-blush-classic-2.jpg";
-import frenchButterflyWhite2 from "@/assets/gallery/french-butterfly-white-2.jpg";
-import redFrenchFloral2 from "@/assets/gallery/red-french-floral-2.jpg";
-import whiteBowFrenchSquare2 from "@/assets/gallery/white-bow-french-square-2.jpeg";
+import pinkCrystalFrenchGlitter from "@/assets/gallery/pink-crystal-french-glitter.jpg";
+import silverGlitterFrenchAlmond from "@/assets/gallery/silver-glitter-french-almond.jpg";
+import whiteFrench3dFlowers from "@/assets/gallery/white-french-3d-flowers.jpg";
+import cherryBlossomMintArt from "@/assets/gallery/cherry-blossom-mint-art.jpg";
+import goldWhiteBowArt from "@/assets/gallery/gold-white-bow-art.jpg";
+import blackWhitePolkaStripe from "@/assets/gallery/black-white-polka-stripe.jpg";
+import whiteSnowflakeSquare from "@/assets/gallery/white-snowflake-square.jpg";
+import navyChromeCatEye from "@/assets/gallery/navy-chrome-cat-eye.jpg";
+import classicPinkWhiteFrench from "@/assets/gallery/classic-pink-white-french.jpg";
+import pastelRainbowOmbre from "@/assets/gallery/pastel-rainbow-ombre.jpg";
+import frenchPedicureWhiteTips from "@/assets/gallery/french-pedicure-white-tips.jpg";
+import nudeGelPedicure from "@/assets/gallery/nude-gel-pedicure.jpg";
+import glitterGoldPedicure from "@/assets/gallery/glitter-gold-pedicure.webp";
+import pearlShimmerPedicure from "@/assets/gallery/pearl-shimmer-pedicure.webp";
 
 const galleryImages: { src: StaticImageData; alt: string }[] = [
   { src: leopardBowFrench, alt: "Leopard print French tips with bow accents" },
@@ -33,14 +39,20 @@ const galleryImages: { src: StaticImageData; alt: string }[] = [
   { src: frenchButterflyWhite, alt: "White French tips with butterfly art" },
   { src: redFrenchFloral, alt: "Red French tips with floral accents" },
   { src: whiteBowFrenchSquare, alt: "White French square nails with 3D bows" },
-  { src: leopardBowFrench2, alt: "Leopard French with bow details" },
-  { src: pastelAuroraChrome2, alt: "Aurora chrome pastel set" },
-  { src: pearlShimmerNatural2, alt: "Natural pearl shimmer nails" },
-  { src: floralBlossomArt2, alt: "Blossom floral nail art" },
-  { src: nudeBlushClassic2, alt: "Nude blush classic manicure" },
-  { src: frenchButterflyWhite2, alt: "Butterfly French white nails" },
-  { src: redFrenchFloral2, alt: "Red French floral design" },
-  { src: whiteBowFrenchSquare2, alt: "Square French nails with white bows" },
+  { src: pinkCrystalFrenchGlitter, alt: "Pink French tips with crystal gems and glitter" },
+  { src: silverGlitterFrenchAlmond, alt: "Silver glitter French almond nails" },
+  { src: whiteFrench3dFlowers, alt: "White French tips with 3D flower accents" },
+  { src: cherryBlossomMintArt, alt: "Cherry blossom nail art on mint and white" },
+  { src: goldWhiteBowArt, alt: "Gold and white bow nail art" },
+  { src: blackWhitePolkaStripe, alt: "Black and white polka dot stripe nails" },
+  { src: whiteSnowflakeSquare, alt: "White snowflake nail art square nails" },
+  { src: navyChromeCatEye, alt: "Navy blue chrome cat eye with star gems" },
+  { src: classicPinkWhiteFrench, alt: "Classic pink and white French tips" },
+  { src: pastelRainbowOmbre, alt: "Pastel rainbow ombre with gems" },
+  { src: frenchPedicureWhiteTips, alt: "French pedicure with white tips" },
+  { src: nudeGelPedicure, alt: "Nude gel pedicure" },
+  { src: glitterGoldPedicure, alt: "Glitter gold pedicure" },
+  { src: pearlShimmerPedicure, alt: "Pearl shimmer pedicure" },
 ];
 
 const INITIAL_COUNT = 6;
@@ -207,21 +219,21 @@ export default function Gallery() {
               e.stopPropagation();
               goPrev();
             }}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-warm-white/10 flex items-center justify-center text-warm-white/80 transition-colors hover:bg-warm-white/20 hover:text-warm-white"
+            className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-warm-white/20 border border-warm-white/20 flex items-center justify-center text-warm-white transition-colors hover:bg-warm-white/30"
             aria-label="Previous image"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={22} />
           </button>
 
           <div
-            className="relative w-[90vw] h-[80vh] max-w-4xl"
+            className="relative w-[75vw] sm:w-[85vw] h-[70vh] sm:h-[80vh] max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={galleryImages[lightboxIndex].src}
               alt={galleryImages[lightboxIndex].alt}
               fill
-              sizes="90vw"
+              sizes="85vw"
               className="object-contain"
               priority
             />
@@ -232,10 +244,10 @@ export default function Gallery() {
               e.stopPropagation();
               goNext();
             }}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-warm-white/10 flex items-center justify-center text-warm-white/80 transition-colors hover:bg-warm-white/20 hover:text-warm-white"
+            className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-warm-white/20 border border-warm-white/20 flex items-center justify-center text-warm-white transition-colors hover:bg-warm-white/30"
             aria-label="Next image"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={22} />
           </button>
 
           <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-body text-sm text-warm-white/60 tracking-wide text-center">

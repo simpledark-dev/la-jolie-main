@@ -3,21 +3,27 @@ import type { LucideIcon } from "lucide-react";
 import type { StaticImageData } from "next/image";
 
 import nudeBlushClassic from "@/assets/gallery/nude-blush-classic.jpg";
-import nudeBlushClassic2 from "@/assets/gallery/nude-blush-classic-2.jpg";
 import pearlShimmerNatural from "@/assets/gallery/pearl-shimmer-natural.jpg";
-import pearlShimmerNatural2 from "@/assets/gallery/pearl-shimmer-natural-2.jpg";
 import pastelAuroraChrome from "@/assets/gallery/pastel-aurora-chrome.jpg";
-import pastelAuroraChrome2 from "@/assets/gallery/pastel-aurora-chrome-2.jpg";
 import frenchButterflyWhite from "@/assets/gallery/french-butterfly-white.jpg";
-import frenchButterflyWhite2 from "@/assets/gallery/french-butterfly-white-2.jpg";
 import floralBlossomArt from "@/assets/gallery/floral-blossom-art.jpg";
-import floralBlossomArt2 from "@/assets/gallery/floral-blossom-art-2.jpg";
 import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
-import leopardBowFrench2 from "@/assets/gallery/leopard-bow-french-2.jpg";
 import redFrenchFloral from "@/assets/gallery/red-french-floral.jpg";
-import redFrenchFloral2 from "@/assets/gallery/red-french-floral-2.jpg";
 import whiteBowFrenchSquare from "@/assets/gallery/white-bow-french-square.jpeg";
-import whiteBowFrenchSquare2 from "@/assets/gallery/white-bow-french-square-2.jpeg";
+import pinkCrystalFrenchGlitter from "@/assets/gallery/pink-crystal-french-glitter.jpg";
+import silverGlitterFrenchAlmond from "@/assets/gallery/silver-glitter-french-almond.jpg";
+import whiteFrench3dFlowers from "@/assets/gallery/white-french-3d-flowers.jpg";
+import cherryBlossomMintArt from "@/assets/gallery/cherry-blossom-mint-art.jpg";
+import goldWhiteBowArt from "@/assets/gallery/gold-white-bow-art.jpg";
+import blackWhitePolkaStripe from "@/assets/gallery/black-white-polka-stripe.jpg";
+import classicPinkWhiteFrench from "@/assets/gallery/classic-pink-white-french.jpg";
+import navyChromeCatEye from "@/assets/gallery/navy-chrome-cat-eye.jpg";
+import pastelRainbowOmbre from "@/assets/gallery/pastel-rainbow-ombre.jpg";
+import whiteSnowflakeSquare from "@/assets/gallery/white-snowflake-square.jpg";
+import frenchPedicureWhiteTips from "@/assets/gallery/french-pedicure-white-tips.jpg";
+import nudeGelPedicure from "@/assets/gallery/nude-gel-pedicure.jpg";
+import glitterGoldPedicure from "@/assets/gallery/glitter-gold-pedicure.webp";
+import pearlShimmerPedicure from "@/assets/gallery/pearl-shimmer-pedicure.webp";
 
 export interface ServiceItem {
   name: string;
@@ -45,7 +51,7 @@ export const services: ServiceCategory[] = [
     icon: Hand,
     description:
       "Pamper your hands with our expert manicure services. From classic polish to long-lasting shellac, we shape, buff, and perfect every nail with care and precision.",
-    images: [nudeBlushClassic, pearlShimmerNatural, frenchButterflyWhite2, nudeBlushClassic2],
+    images: [nudeBlushClassic, pearlShimmerNatural, pinkCrystalFrenchGlitter, classicPinkWhiteFrench, silverGlitterFrenchAlmond, whiteBowFrenchSquare, whiteSnowflakeSquare, pastelRainbowOmbre, pastelAuroraChrome, frenchButterflyWhite, floralBlossomArt, leopardBowFrench, redFrenchFloral, whiteFrench3dFlowers, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye],
     items: [
       { name: "Gel Nail Polish", price: "$30" },
       { name: "Gel Nail Polish Removal", price: "$10" },
@@ -60,7 +66,7 @@ export const services: ServiceCategory[] = [
     icon: Footprints,
     description:
       "Treat your feet to a relaxing pedicure experience. We soak, exfoliate, and polish to leave your toes looking beautiful and feeling refreshed from heel to tip.",
-    images: [nudeBlushClassic2, pearlShimmerNatural2, pearlShimmerNatural, pastelAuroraChrome2],
+    images: [frenchPedicureWhiteTips, nudeGelPedicure, glitterGoldPedicure, pearlShimmerPedicure],
     items: [
       { name: "Regular Pedicure", price: "$45" },
       { name: "Shellac Pedicure", price: "$65" },
@@ -74,7 +80,7 @@ export const services: ServiceCategory[] = [
     icon: Layers,
     description:
       "Add length and strength with our professional nail extensions. Whether you prefer Biogel for a natural look or Gel X for instant glam, we build sets that last.",
-    images: [pastelAuroraChrome, frenchButterflyWhite, pastelAuroraChrome2, whiteBowFrenchSquare2, nudeBlushClassic],
+    images: [pastelAuroraChrome, frenchButterflyWhite, silverGlitterFrenchAlmond, whiteBowFrenchSquare, nudeBlushClassic, pinkCrystalFrenchGlitter, classicPinkWhiteFrench, whiteFrench3dFlowers, whiteSnowflakeSquare, pearlShimmerNatural, floralBlossomArt, leopardBowFrench, redFrenchFloral, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye, pastelRainbowOmbre],
     items: [
       { name: "Biogel", price: "$65" },
       { name: "Biogel Refill", price: "$50" },
@@ -89,7 +95,7 @@ export const services: ServiceCategory[] = [
     icon: Palette,
     description:
       "Express yourself with custom nail art. From elegant French tips to bold chrome finishes and hand-painted designs — bring your vision, and we'll make it real.",
-    images: [floralBlossomArt, leopardBowFrench, redFrenchFloral, whiteBowFrenchSquare, floralBlossomArt2, leopardBowFrench2, redFrenchFloral2],
+    images: [floralBlossomArt, leopardBowFrench, redFrenchFloral, whiteFrench3dFlowers, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye, pastelRainbowOmbre, whiteSnowflakeSquare, pinkCrystalFrenchGlitter, whiteBowFrenchSquare, nudeBlushClassic, pearlShimmerNatural, pastelAuroraChrome, frenchButterflyWhite, silverGlitterFrenchAlmond, classicPinkWhiteFrench],
     items: [
       { name: "Nail Art / Design", price: "$5 – $25+" },
       { name: "French Tip Add-on", price: "$15" },
