@@ -212,7 +212,7 @@ const en = {
       {
         question: "What payment methods do you accept?",
         answer:
-          "We accept cash, all major credit and debit cards, and Interac. Payment is collected at the end of your appointment.",
+          "We accept cash and all major credit and debit cards. Payment is collected at the end of your appointment.",
       },
       {
         question: "Is there parking available?",

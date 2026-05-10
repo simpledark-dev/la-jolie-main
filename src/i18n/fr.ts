@@ -214,7 +214,7 @@ const fr: Translations = {
       {
         question: "Quels modes de paiement acceptez-vous ?",
         answer:
-          "Nous acceptons l'argent comptant, toutes les principales cartes de crédit et de débit, ainsi qu'Interac. Le paiement est effectué à la fin de votre rendez-vous.",
+          "Nous acceptons l'argent comptant ainsi que toutes les principales cartes de crédit et de débit. Le paiement est effectué à la fin de votre rendez-vous.",
       },
       {
         question: "Y a-t-il du stationnement disponible ?",
