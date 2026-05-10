@@ -204,11 +204,11 @@ const en = {
         answer:
           "Gel nails typically last 2–3 weeks with proper care. We recommend avoiding harsh chemicals, wearing gloves for household tasks, and applying cuticle oil regularly to keep them looking their best.",
       },
-      {
-        question: "What products do you use?",
-        answer:
-          "We use high-quality, professional-grade gel and biogel products to ensure long-lasting results that are gentle on your natural nails. We prioritize both beauty and nail health in every service.",
-      },
+      // {
+      //   question: "What products do you use?",
+      //   answer:
+      //     "We use high-quality, professional-grade gel and biogel products to ensure long-lasting results that are gentle on your natural nails. We prioritize both beauty and nail health in every service.",
+      // },
       {
         question: "What payment methods do you accept?",
         answer:
@@ -217,7 +217,7 @@ const en = {
       {
         question: "Is there parking available?",
         answer:
-          "Yes, street parking is available along Rue Saint-Hubert near the salon. We're also conveniently located close to the Beaubien metro station for easy access by public transit.",
+          "Yes, there's plenty of paid street parking available along Rue Saint-Hubert near the salon — please note that all spots require payment. We're also conveniently located close to the Beaubien metro station for easy access by public transit.",
       },
       {
         question: "Do you offer nail art and custom designs?",

@@ -206,11 +206,11 @@ const fr: Translations = {
         answer:
           "Les ongles en gel durent généralement 2 à 3 semaines avec un entretien approprié. Nous recommandons d'éviter les produits chimiques agressifs, de porter des gants pour les tâches ménagères et d'appliquer régulièrement de l'huile à cuticules.",
       },
-      {
-        question: "Quels produits utilisez-vous ?",
-        answer:
-          "Nous utilisons des produits gel et biogel de qualité professionnelle pour garantir des résultats durables et doux pour vos ongles naturels. Nous priorisons à la fois la beauté et la santé des ongles.",
-      },
+      // {
+      //   question: "Quels produits utilisez-vous ?",
+      //   answer:
+      //     "Nous utilisons des produits gel et biogel de qualité professionnelle pour garantir des résultats durables et doux pour vos ongles naturels. Nous priorisons à la fois la beauté et la santé des ongles.",
+      // },
       {
         question: "Quels modes de paiement acceptez-vous ?",
         answer:
@@ -219,7 +219,7 @@ const fr: Translations = {
       {
         question: "Y a-t-il du stationnement disponible ?",
         answer:
-          "Oui, du stationnement dans la rue est disponible le long de la rue Saint-Hubert près du salon. Nous sommes également situés près de la station de métro Beaubien pour un accès facile en transport en commun.",
+          "Oui, du stationnement payant est disponible en abondance le long de la rue Saint-Hubert près du salon — à noter que toutes les places sont payantes. Nous sommes également situés près de la station de métro Beaubien pour un accès facile en transport en commun.",
       },
       {
         question: "Offrez-vous du nail art et des designs personnalisés ?",
