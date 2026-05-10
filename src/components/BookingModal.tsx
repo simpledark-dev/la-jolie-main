@@ -33,7 +33,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
       onClick={onClose}
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-brown-900/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-brown-900/60 backdrop-blur-sm animate-fade-in" />
 
       {/* Modal */}
       <div
@@ -62,7 +62,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
         {/* Options */}
         <div className="space-y-3">
           <a
-            href="https://bellebooking.com/center/lynn-signature-nails"
+            href="https://www.dashbooking.com/salon/ongles-diamant-rose-montreal"
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
@@ -82,7 +82,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
           </a>
 
           <a
-            href="tel:+12635529513"
+            href="tel:+15145433040"
             onClick={onClose}
             className="group flex items-center gap-4 w-full px-5 py-4 rounded-xl border border-brown-100/60 bg-cream/40 transition-all duration-200 hover:border-gold/40 hover:bg-cream/80"
           >
@@ -94,7 +94,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                 {t.booking.call}
               </p>
               <p className="font-body text-xs text-brown-400">
-                +1 (263) 552-9513
+                +1 (514) 543-3040
               </p>
             </div>
           </a>

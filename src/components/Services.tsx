@@ -80,47 +80,47 @@ export default function Services() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
 
-        {/* Combo Packages — Featured */}
-        <ScrollReveal delay={200}>
-          <div className="mt-8 relative rounded-2xl border border-gold/30 bg-gradient-to-br from-cream via-warm-white to-blush-light/30 p-8 md:p-10 overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-[2px] gold-shimmer" />
+          {/* Combo Packages — Featured (sits in the grid alongside services) */}
+          <ScrollReveal delay={services.length * 100}>
+            <div className="group relative rounded-2xl border border-gold/40 bg-gradient-to-br from-cream via-warm-white to-blush-light/30 p-7 pt-8 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(44,30,16,0.08)] hover:border-gold/60 overflow-hidden h-full">
+              <div className="absolute top-0 left-0 right-0 h-[2px] gold-shimmer" />
 
-            <div className="flex flex-col md:flex-row md:items-start md:gap-12">
-              <div className="md:w-1/3 mb-6 md:mb-0">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold-light/50 flex items-center justify-center">
-                    <Package size={18} className="text-brown-700" />
-                  </div>
-                  <h3 className="font-display text-2xl font-semibold text-brown-800">
-                    {t.services.comboPackages}
-                  </h3>
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold-light/50 flex items-center justify-center transition-colors duration-300 group-hover:bg-gold-light">
+                  <Package size={18} className="text-brown-700" />
                 </div>
-                <p className="font-body text-sm text-brown-500 leading-relaxed">
-                  {t.services.comboDescription}
-                </p>
+                <h3 className="font-display text-xl font-semibold text-brown-800">
+                  {t.services.comboPackages}
+                </h3>
               </div>
 
-              <div className="md:flex-1 grid sm:grid-cols-2 gap-x-8 gap-y-0">
+              {/* Description */}
+              <p className="font-body text-xs text-brown-500 leading-relaxed mb-5">
+                {t.services.comboDescription}
+              </p>
+
+              {/* Items */}
+              <div className="space-y-0">
                 {comboPackages.map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-baseline gap-2 py-3"
+                    className="flex items-baseline gap-2 py-2.5"
                   >
                     <span className="font-body text-sm font-medium text-brown-700">
                       {(t.comboPackages as Record<string, string>)[item.name] ?? item.name}
                     </span>
                     <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
-                    <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800">
+                    <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
                       {item.price}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
 
         {/* CTA */}
         <ScrollReveal delay={300}>

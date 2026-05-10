@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(slug);
   if (!service) return {};
 
-  const title = `${service.category} — La Jolie Main | Montreal Nail Salon`;
+  const title = `${service.category} — Ongles Diamant | Montreal Nail Salon`;
   const description = service.description;
 
   return {

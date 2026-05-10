@@ -14,15 +14,15 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  locale: "en",
+  locale: "fr",
   setLocale: () => {},
-  t: en,
+  t: fr,
 });
 
 const translations: Record<Locale, Translations> = { en, fr };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const [locale, setLocaleState] = useState<Locale>("fr");
   const [transitioning, setTransitioning] = useState(false);
   const pendingLocale = useRef<Locale | null>(null);
 

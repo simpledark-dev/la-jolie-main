@@ -27,19 +27,19 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <h3 className="font-display text-2xl font-semibold text-warm-white tracking-wide">
-              La Jolie Main
+              Ongles Diamant
             </h3>
             <p className="mt-4 font-body text-sm leading-relaxed text-warm-white/60 font-light max-w-xs">
               {t.footer.brandDescription}
             </p>
             <a
-              href="https://www.instagram.com/lajoliemain.mtl/"
+              href="https://www.instagram.com/ongles_diamant_rose/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-6 font-body text-sm tracking-wider text-gold-light/80 transition-colors duration-300 hover:text-gold"
             >
               <Instagram size={18} />
-              @lajoliemain.mtl
+              @ongles_diamant_rose
             </a>
           </div>
 
@@ -69,16 +69,16 @@ export default function Footer() {
             <div className="space-y-3 font-body text-sm text-warm-white/60 font-light">
               <p>
                 <a
-                  href="tel:+12635529513"
+                  href="tel:+15145433040"
                   className="transition-colors hover:text-gold-light"
                 >
-                  +1 (263) 552-9513
+                  +1 (514) 543-3040
                 </a>
               </p>
               <p>
-                487 Bd Décarie, unit B
+                6843 Rue St-Hubert
                 <br />
-                Saint-Laurent, QC H4L 3L1
+                Montréal, QC H2S 2M7
               </p>
               <p>
                 {t.footer.hoursTuThuSun}
@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-warm-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-warm-white/40 tracking-wide">
-            © {new Date().getFullYear()} La Jolie Main. {t.footer.allRights}
+            © {new Date().getFullYear()} Ongles Diamant. {t.footer.allRights}
           </p>
           <p className="font-body text-xs text-warm-white/40 tracking-wide flex items-center gap-1">
             {t.footer.madeWith} <Heart size={12} className="text-pink-warm/60" /> {t.footer.forBeautifulHands}

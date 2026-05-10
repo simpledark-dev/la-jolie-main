@@ -78,16 +78,29 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="/#home"
-            className="flex items-center gap-3 font-display text-2xl lg:text-3xl font-semibold tracking-wide text-brown-800 transition-colors hover:text-gold"
+            className="group flex flex-col items-center gap-1 transition-colors"
+            aria-label="Ongles Diamant — home"
           >
-            <Image
-              src={logo}
-              alt="La Jolie Main logo"
-              className="h-14 w-auto lg:h-18"
-              height={72}
-              width={72}
-              priority
-            />
+            <div className="relative h-12 lg:h-14 aspect-[7/4] overflow-hidden flex-shrink-0">
+              <Image
+                src={logo}
+                alt=""
+                aria-hidden
+                width={540}
+                height={460}
+                className="absolute top-0 left-0 w-full h-auto"
+                priority
+              />
+            </div>
+            <span
+              className="font-display text-base lg:text-lg italic font-light tracking-wide leading-tight pb-0.5 whitespace-nowrap bg-clip-text text-transparent transition-opacity group-hover:opacity-80"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, #6B4F3A, #C9A96E, #8B6F47)",
+              }}
+            >
+              Ongles Diamant
+            </span>
           </a>
 
           {/* Desktop Links */}

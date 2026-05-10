@@ -183,7 +183,7 @@ export default function Gallery() {
                 {t.gallery.followCta}
               </p>
               <a
-                href="https://www.instagram.com/lajoliemain.mtl/"
+                href="https://www.instagram.com/ongles_diamant_rose/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-7 py-3 bg-brown-700 text-warm-white font-body text-sm font-medium tracking-wider uppercase rounded-full transition-all duration-300 hover:bg-brown-800 hover:shadow-[0_4px_16px_rgba(92,64,51,0.3)]"

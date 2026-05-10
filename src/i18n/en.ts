@@ -31,7 +31,7 @@ const en = {
     headlinePart1: "A Place Where You",
     headlinePart2: "Feel",
     headlinePart3: "Beautiful",
-    p1: "At La Jolie Main, we believe that nail care is more than a service — it's a moment of self-care, a ritual of beauty, and a personal expression of elegance.",
+    p1: "At Ongles Diamant, we believe that nail care is more than a service — it's a moment of self-care, a ritual of beauty, and a personal expression of elegance.",
     p2: "Our warm and inviting salon is designed to be your retreat from the everyday. From the moment you walk in, you'll feel the difference — in the atmosphere, the attention to detail, and the genuine care we put into every visit.",
     yearsOfExcellence: "Years of Excellence",
     highlights: {
@@ -183,7 +183,7 @@ const en = {
     remaining: "remaining",
     showLess: "Show Less",
     followCta: "See more on our Instagram",
-    followButton: "Follow @lajoliemain.mtl",
+    followButton: "Follow @ongles_diamant_rose",
   },
 
   // FAQ
@@ -197,7 +197,7 @@ const en = {
       {
         question: "Do I need an appointment?",
         answer:
-          "We recommend booking in advance to guarantee your spot, but walk-ins are welcome when availability allows. You can book online through our website or call us at +1 (263) 552-9513.",
+          "We recommend booking in advance to guarantee your spot, but walk-ins are welcome when availability allows. You can book online through our website or call us at +1 (514) 543-3040.",
       },
       {
         question: "How long do gel nails last?",
@@ -217,7 +217,7 @@ const en = {
       {
         question: "Is there parking available?",
         answer:
-          "Yes, free street parking is available along Boulevard Décarie near the salon. We're also conveniently located close to the Du Collège metro station for easy access by public transit.",
+          "Yes, street parking is available along Rue Saint-Hubert near the salon. We're also conveniently located close to the Beaubien metro station for easy access by public transit.",
       },
       {
         question: "Do you offer nail art and custom designs?",
@@ -240,6 +240,7 @@ const en = {
     hours: "Hours",
     hoursTuThuSun: "Tue, Thu, Sun: 9:00 AM – 8:00 PM",
     hoursClosed: "Mon, Wed, Fri, Sat: Closed",
+    openInMaps: "Open in Google Maps",
   },
 
   // Footer

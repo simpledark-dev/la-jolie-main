@@ -56,10 +56,10 @@ export default function FAQ() {
                 {t.faq.description}
               </p>
               <a
-                href="tel:+12635529513"
+                href="tel:+15145433040"
                 className="mt-6 inline-flex items-center gap-2 font-body text-sm font-medium tracking-wider text-gold-dark transition-colors hover:text-brown-700"
               >
-                +1 (263) 552-9513
+                +1 (514) 543-3040
               </a>
             </div>
           </ScrollReveal>

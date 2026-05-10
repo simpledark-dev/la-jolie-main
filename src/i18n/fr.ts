@@ -33,7 +33,7 @@ const fr: Translations = {
     headlinePart1: "Un Endroit où Vous Vous",
     headlinePart2: "Sentez",
     headlinePart3: "Belle",
-    p1: "Chez La Jolie Main, nous croyons que le soin des ongles est bien plus qu'un service — c'est un moment de bien-être, un rituel de beauté et une expression personnelle d'élégance.",
+    p1: "Chez Ongles Diamant, nous croyons que le soin des ongles est bien plus qu'un service — c'est un moment de bien-être, un rituel de beauté et une expression personnelle d'élégance.",
     p2: "Notre salon chaleureux et accueillant est conçu pour être votre refuge du quotidien. Dès votre entrée, vous ressentirez la différence — dans l'atmosphère, le souci du détail et l'attention sincère que nous accordons à chaque visite.",
     yearsOfExcellence: "Années d'Excellence",
     highlights: {
@@ -185,7 +185,7 @@ const fr: Translations = {
     remaining: "restantes",
     showLess: "Voir Moins",
     followCta: "Vous aimez ce que vous voyez ? Suivez-nous pour de l'inspiration quotidienne",
-    followButton: "Suivre @lajoliemain.mtl",
+    followButton: "Suivre @ongles_diamant_rose",
   },
 
   // FAQ
@@ -199,7 +199,7 @@ const fr: Translations = {
       {
         question: "Ai-je besoin d'un rendez-vous ?",
         answer:
-          "Nous recommandons de réserver à l'avance pour garantir votre place, mais les visites sans rendez-vous sont les bienvenues selon la disponibilité. Vous pouvez réserver en ligne via notre site web ou nous appeler au +1 (263) 552-9513.",
+          "Nous recommandons de réserver à l'avance pour garantir votre place, mais les visites sans rendez-vous sont les bienvenues selon la disponibilité. Vous pouvez réserver en ligne via notre site web ou nous appeler au +1 (514) 543-3040.",
       },
       {
         question: "Combien de temps durent les ongles en gel ?",
@@ -219,7 +219,7 @@ const fr: Translations = {
       {
         question: "Y a-t-il du stationnement disponible ?",
         answer:
-          "Oui, du stationnement gratuit est disponible le long du boulevard Décarie près du salon. Nous sommes également situés près de la station de métro Du Collège pour un accès facile en transport en commun.",
+          "Oui, du stationnement dans la rue est disponible le long de la rue Saint-Hubert près du salon. Nous sommes également situés près de la station de métro Beaubien pour un accès facile en transport en commun.",
       },
       {
         question: "Offrez-vous du nail art et des designs personnalisés ?",
@@ -242,6 +242,7 @@ const fr: Translations = {
     hours: "Heures",
     hoursTuThuSun: "Mar, Jeu, Dim : 9h00 – 20h00",
     hoursClosed: "Lun, Mer, Ven, Sam : Fermé",
+    openInMaps: "Ouvrir dans Google Maps",
   },
 
   // Footer

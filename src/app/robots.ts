@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://lajoliemain.ca/sitemap.xml",
+    sitemap: "https://ongles-diamant.com/sitemap.xml",
   };
 }

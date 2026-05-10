@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://lajoliemain.ca";
+const baseUrl = "https://ongles-diamant.com";
 
 const serviceSlugs = [
   "manicure",
