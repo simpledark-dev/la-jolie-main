@@ -270,7 +270,7 @@ const en = {
     title: "Book Your Appointment",
     subtitle: "How would you like to book?",
     online: "Book Online",
-    onlineDescription: "Schedule instantly on BelleBooking",
+    onlineDescription: "Schedule instantly on Dash Booking",
     call: "Call Us",
   },
 };

@@ -272,7 +272,7 @@ const fr: Translations = {
     title: "Prendre Rendez-vous",
     subtitle: "Comment souhaitez-vous réserver ?",
     online: "Réserver en Ligne",
-    onlineDescription: "Planifiez sur BelleBooking",
+    onlineDescription: "Planifiez sur Dash Booking",
     call: "Appelez-nous",
   },
 };
