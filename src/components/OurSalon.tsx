@@ -22,14 +22,16 @@ export default function OurSalon() {
           <ScrollReveal direction="left">
             <div className="relative pt-4 pl-4 pb-8">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(44,30,16,0.1)]">
-                <img
-                  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=1000&fit=crop&q=80"
-                  alt="Elegant nail salon interior"
-                  className="w-full h-full object-cover"
+                <Image
+                  src={salonImage}
+                  alt="Pearl chrome almond nails on flowing white fabric"
+                  fill
+                  sizes="(max-width: 1024px) 90vw, 50vw"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brown-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brown-900/20 to-transparent pointer-events-none" />
               </div>
-              <div className="absolute top-0 left-0 w-full h-full rounded-2xl border-2 border-gold/20" />
+              <div className="absolute top-0 left-0 w-full h-full rounded-2xl border-2 border-gold/20 pointer-events-none" />
               <div className="absolute bottom-0 left-0 bg-warm-white rounded-xl shadow-[0_8px_30px_rgba(44,30,16,0.08)] px-6 py-4 border border-cream-dark">
                 <p className="font-display text-3xl font-semibold text-brown-700">8+</p>
                 <p className="font-body text-xs tracking-wider uppercase text-brown-400 mt-0.5">

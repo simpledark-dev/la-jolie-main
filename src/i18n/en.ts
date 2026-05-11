@@ -182,6 +182,7 @@ const en = {
     viewMore: "View More",
     remaining: "remaining",
     showLess: "Show Less",
+    video: "Video",
     followCta: "See more on our Instagram",
     followButton: "Follow @ongles_diamant_rose",
   },

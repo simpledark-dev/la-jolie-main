@@ -4,9 +4,9 @@ import Image from "next/image";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageContext";
 import { useBooking } from "@/components/BookingProvider";
-import heroImg1 from "@/assets/gallery/pastel-aurora-chrome.jpg";
-import heroImg2 from "@/assets/gallery/french-butterfly-white.jpg";
-import heroImg3 from "@/assets/gallery/red-french-floral.jpg";
+import heroImg1 from "@/assets/gallery/sheer-pink-3d-flowers.jpg";
+import heroImg2 from "@/assets/gallery/purple-gold-cloud-art.jpg";
+import heroImg3 from "@/assets/gallery/pastel-french-multicolor.jpg";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -88,7 +88,7 @@ export default function Hero() {
             <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-[0_25px_80px_rgba(44,30,16,0.15)] aspect-[3/4] max-w-[380px] ml-auto">
               <Image
                 src={heroImg1}
-                alt="Beautiful pastel aurora chrome nails"
+                alt="Sheer pink almond nails with 3D flower accents"
                 fill
                 sizes="380px"
                 className="object-cover"
@@ -101,7 +101,7 @@ export default function Hero() {
             <div className="absolute -bottom-6 -left-4 z-20 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(44,30,16,0.12)] w-[200px] h-[267px] border-4 border-warm-white">
               <Image
                 src={heroImg2}
-                alt="French butterfly white nails"
+                alt="Purple and gold hand-painted nail art"
                 fill
                 sizes="200px"
                 className="object-cover"
@@ -113,7 +113,7 @@ export default function Hero() {
             <div className="absolute -top-6 left-4 z-20 rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(44,30,16,0.1)] w-[140px] h-[140px] border-4 border-warm-white">
               <Image
                 src={heroImg3}
-                alt="Pearl shimmer natural nails"
+                alt="Almond nails with pastel multicolor French tips"
                 fill
                 sizes="140px"
                 className="object-cover"

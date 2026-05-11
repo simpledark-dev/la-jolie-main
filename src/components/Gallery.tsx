@@ -2,11 +2,17 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
-import { X, ChevronLeft, ChevronRight, Instagram } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Instagram, Play } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 // Import all gallery images here — just add a new line when you add a photo
+import sheerPink3dFlowers from "@/assets/gallery/sheer-pink-3d-flowers.jpg";
+import pearlChromeAlmond from "@/assets/gallery/pearl-chrome-almond.jpg";
+import pinkLeopardStilettoBow from "@/assets/gallery/pink-leopard-stiletto-bow.jpg";
+import pinkWhiteFrenchFloral from "@/assets/gallery/pink-white-french-floral.jpg";
+import purpleGoldCloudArt from "@/assets/gallery/purple-gold-cloud-art.jpg";
+import pastelFrenchMulticolor from "@/assets/gallery/pastel-french-multicolor.jpg";
 import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
 import pastelAuroraChrome from "@/assets/gallery/pastel-aurora-chrome.jpg";
 import pearlShimmerNatural from "@/assets/gallery/pearl-shimmer-natural.jpg";
@@ -30,33 +36,45 @@ import nudeGelPedicure from "@/assets/gallery/nude-gel-pedicure.jpg";
 import glitterGoldPedicure from "@/assets/gallery/glitter-gold-pedicure.webp";
 import pearlShimmerPedicure from "@/assets/gallery/pearl-shimmer-pedicure.webp";
 
-const galleryImages: { src: StaticImageData; alt: string }[] = [
-  { src: leopardBowFrench, alt: "Leopard print French tips with bow accents" },
-  { src: pastelAuroraChrome, alt: "Pastel aurora chrome nails" },
-  { src: pearlShimmerNatural, alt: "Pearl shimmer natural finish" },
-  { src: floralBlossomArt, alt: "Floral blossom nail art" },
-  { src: nudeBlushClassic, alt: "Classic nude blush nails" },
-  { src: frenchButterflyWhite, alt: "White French tips with butterfly art" },
-  { src: redFrenchFloral, alt: "Red French tips with floral accents" },
-  { src: whiteBowFrenchSquare, alt: "White French square nails with 3D bows" },
-  { src: pinkCrystalFrenchGlitter, alt: "Pink French tips with crystal gems and glitter" },
-  { src: silverGlitterFrenchAlmond, alt: "Silver glitter French almond nails" },
-  { src: whiteFrench3dFlowers, alt: "White French tips with 3D flower accents" },
-  { src: cherryBlossomMintArt, alt: "Cherry blossom nail art on mint and white" },
-  { src: goldWhiteBowArt, alt: "Gold and white bow nail art" },
-  { src: blackWhitePolkaStripe, alt: "Black and white polka dot stripe nails" },
-  { src: whiteSnowflakeSquare, alt: "White snowflake nail art square nails" },
-  { src: navyChromeCatEye, alt: "Navy blue chrome cat eye with star gems" },
-  { src: classicPinkWhiteFrench, alt: "Classic pink and white French tips" },
-  { src: pastelRainbowOmbre, alt: "Pastel rainbow ombre with gems" },
-  { src: frenchPedicureWhiteTips, alt: "French pedicure with white tips" },
-  { src: nudeGelPedicure, alt: "Nude gel pedicure" },
-  { src: glitterGoldPedicure, alt: "Glitter gold pedicure" },
-  { src: pearlShimmerPedicure, alt: "Pearl shimmer pedicure" },
+type GalleryItem =
+  | { kind: "image"; src: StaticImageData; alt: string }
+  | { kind: "video"; src: string; poster: StaticImageData; alt: string };
+
+const galleryImages: GalleryItem[] = [
+  { kind: "video", src: "/videos/nail-showcase-1.mp4", poster: sheerPink3dFlowers, alt: "Nail design in motion — showcase reel" },
+  { kind: "image", src: sheerPink3dFlowers, alt: "Sheer pink almond nails with 3D flower accents" },
+  { kind: "image", src: pearlChromeAlmond, alt: "Pearl chrome shimmer almond nails" },
+  { kind: "image", src: pinkWhiteFrenchFloral, alt: "Elegant pink and white French tips with 3D floral accents" },
+  { kind: "video", src: "/videos/nail-showcase-2.mp4", poster: pastelFrenchMulticolor, alt: "Close-up of finished nail work" },
+  { kind: "image", src: purpleGoldCloudArt, alt: "Purple and gold hand-painted nail art with sun motifs" },
+  { kind: "image", src: pinkLeopardStilettoBow, alt: "Pink stiletto nails with leopard tips and 3D bows" },
+  { kind: "image", src: pastelFrenchMulticolor, alt: "Almond nails with pastel multicolor French tips" },
+  { kind: "image", src: leopardBowFrench, alt: "Leopard print French tips with bow accents" },
+  { kind: "image", src: pastelAuroraChrome, alt: "Pastel aurora chrome nails" },
+  { kind: "image", src: pearlShimmerNatural, alt: "Pearl shimmer natural finish" },
+  { kind: "image", src: floralBlossomArt, alt: "Floral blossom nail art" },
+  { kind: "image", src: nudeBlushClassic, alt: "Classic nude blush nails" },
+  { kind: "image", src: frenchButterflyWhite, alt: "White French tips with butterfly art" },
+  { kind: "image", src: redFrenchFloral, alt: "Red French tips with floral accents" },
+  { kind: "image", src: whiteBowFrenchSquare, alt: "White French square nails with 3D bows" },
+  { kind: "image", src: pinkCrystalFrenchGlitter, alt: "Pink French tips with crystal gems and glitter" },
+  { kind: "image", src: silverGlitterFrenchAlmond, alt: "Silver glitter French almond nails" },
+  { kind: "image", src: whiteFrench3dFlowers, alt: "White French tips with 3D flower accents" },
+  { kind: "image", src: cherryBlossomMintArt, alt: "Cherry blossom nail art on mint and white" },
+  { kind: "image", src: goldWhiteBowArt, alt: "Gold and white bow nail art" },
+  { kind: "image", src: blackWhitePolkaStripe, alt: "Black and white polka dot stripe nails" },
+  { kind: "image", src: whiteSnowflakeSquare, alt: "White snowflake nail art square nails" },
+  { kind: "image", src: navyChromeCatEye, alt: "Navy blue chrome cat eye with star gems" },
+  { kind: "image", src: classicPinkWhiteFrench, alt: "Classic pink and white French tips" },
+  { kind: "image", src: pastelRainbowOmbre, alt: "Pastel rainbow ombre with gems" },
+  { kind: "image", src: frenchPedicureWhiteTips, alt: "French pedicure with white tips" },
+  { kind: "image", src: nudeGelPedicure, alt: "Nude gel pedicure" },
+  { kind: "image", src: glitterGoldPedicure, alt: "Glitter gold pedicure" },
+  { kind: "image", src: pearlShimmerPedicure, alt: "Pearl shimmer pedicure" },
 ];
 
-const INITIAL_COUNT = 6;
-const LOAD_MORE_COUNT = 6;
+const INITIAL_COUNT = 12;
+const LOAD_MORE_COUNT = 12;
 
 export default function Gallery() {
   const { t } = useTranslation();
@@ -125,25 +143,46 @@ export default function Gallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {visibleImages.map((img, i) => (
+          {visibleImages.map((item, i) => (
             <ScrollReveal key={i} delay={i < 6 ? i * 80 : 0}>
               <button
                 onClick={() => openLightbox(i)}
                 className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4] w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                aria-label={item.alt}
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
+                {item.kind === "video" ? (
+                  <>
+                    <video
+                      src={item.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster={item.poster.src}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    {/* Video badge */}
+                    <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brown-900/55 backdrop-blur-sm text-warm-white">
+                      <Play size={11} fill="currentColor" />
+                      <span className="font-body text-[10px] tracking-wider uppercase">{t.gallery.video}</span>
+                    </div>
+                  </>
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  />
+                )}
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-brown-900/50 via-brown-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 {/* Hover Label */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <p className="font-body text-xs md:text-sm tracking-wide text-warm-white/90">
-                    {img.alt}
+                    {item.alt}
                   </p>
                 </div>
                 {/* Subtle gold border on hover */}
@@ -229,14 +268,31 @@ export default function Gallery() {
             className="relative w-[75vw] sm:w-[85vw] h-[70vh] sm:h-[80vh] max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              src={galleryImages[lightboxIndex].src}
-              alt={galleryImages[lightboxIndex].alt}
-              fill
-              sizes="85vw"
-              className="object-contain"
-              priority
-            />
+            {(() => {
+              const active = galleryImages[lightboxIndex];
+              return active.kind === "video" ? (
+                <video
+                  key={lightboxIndex}
+                  src={active.src}
+                  poster={active.poster.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-brown-900"
+                  aria-label={active.alt}
+                />
+              ) : (
+                <Image
+                  src={active.src}
+                  alt={active.alt}
+                  fill
+                  sizes="85vw"
+                  className="object-contain"
+                  priority
+                />
+              );
+            })()}
           </div>
 
           <button

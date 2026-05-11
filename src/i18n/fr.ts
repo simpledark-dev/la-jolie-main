@@ -184,6 +184,7 @@ const fr: Translations = {
     viewMore: "Voir Plus",
     remaining: "restantes",
     showLess: "Voir Moins",
+    video: "Vidéo",
     followCta: "Vous aimez ce que vous voyez ? Suivez-nous pour de l'inspiration quotidienne",
     followButton: "Suivre @ongles_diamant_rose",
   },
