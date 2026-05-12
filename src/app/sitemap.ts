@@ -7,7 +7,6 @@ const serviceSlugs = [
   "pedicure",
   "extensions",
   "nail-design",
-  "waxing",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

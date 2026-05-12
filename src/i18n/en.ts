@@ -63,6 +63,7 @@ const en = {
     comboDescription:
       "Save with our curated combinations — the perfect way to treat yourself.",
     bookAppointment: "Book Your Appointment",
+    from: "from",
   },
 
   // Service categories
@@ -70,13 +71,12 @@ const en = {
     manicure: {
       category: "Manicure",
       description:
-        "Pamper your hands with our expert manicure services. From classic polish to long-lasting shellac, we shape, buff, and perfect every nail with care and precision.",
+        "Pamper your hands with our expert manicure services. From classic polish to long-lasting gel, we shape, buff, and perfect every nail with care and precision.",
       items: {
-        "Gel Nail Polish": "Gel Nail Polish",
-        "Gel Nail Polish Removal": "Gel Nail Polish Removal",
-        Manicure: "Manicure",
-        "Shellac Manicure": "Shellac Manicure",
-        "Nail Repair": "Nail Repair",
+        "Regular Manicure": "Regular Manicure",
+        "Gel Manicure": "Gel Manicure",
+        "Gel Color (Hands)": "Gel Color (Hands)",
+        "Regular Polish (Hands)": "Regular Polish (Hands)",
       },
     },
     pedicure: {
@@ -85,60 +85,43 @@ const en = {
         "Treat your feet to a relaxing pedicure experience. We soak, exfoliate, and polish to leave your toes looking beautiful and feeling refreshed from heel to tip.",
       items: {
         "Regular Pedicure": "Regular Pedicure",
-        "Shellac Pedicure": "Shellac Pedicure",
-        "Nail Polish": "Nail Polish",
-        Paraffin: "Paraffin",
+        "Gel Pedicure": "Gel Pedicure",
+        "Gel Polish (Feet)": "Gel Polish (Feet)",
+        "Regular Polish (Feet)": "Regular Polish (Feet)",
       },
     },
     extensions: {
-      category: "Full Set / Extensions",
+      category: "Full Set & Refills",
       description:
         "Add length and strength with our professional nail extensions. Whether you prefer Biogel for a natural look or Gel X for instant glam, we build sets that last.",
       items: {
-        Biogel: "Biogel",
+        "Acrylic Full Set + Gel Polish": "Acrylic Full Set + Gel Polish",
+        "Biogel Full Set": "Biogel Full Set",
+        "Gel X Full Set": "Gel X Full Set",
+        "Toe Nail Full Set": "Toe Nail Full Set",
+        "Acrylic Refill + Gel Polish": "Acrylic Refill + Gel Polish",
         "Biogel Refill": "Biogel Refill",
-        "Biogel / Gel X Removal": "Biogel / Gel X Removal",
-        "Gel X": "Gel X",
-        "Extra Long Nails": "Extra Long Nails",
+        "Acrylic Removal": "Acrylic Removal",
       },
     },
     "nail-design": {
       category: "Nail Design",
       description:
-        "Express yourself with custom nail art. From elegant French tips to bold chrome finishes and hand-painted designs — bring your vision, and we'll make it real.",
+        "Express yourself with custom nail art. From elegant French tips to bold ombré finishes and hand-painted designs — bring your vision, and we'll make it real.",
       items: {
-        "Nail Art / Design": "Nail Art / Design",
-        "French Tip Add-on": "French Tip Add-on",
-        "Chrome / Special": "Chrome / Special",
-        "Diamond Cat Eye": "Diamond Cat Eye",
-        Ombre: "Ombre",
-      },
-    },
-    waxing: {
-      category: "Waxing",
-      description:
-        "Smooth, clean results with our gentle waxing services. We offer facial and body waxing in a comfortable, hygienic setting — quick sessions with lasting smoothness.",
-      items: {
-        Eyebrow: "Eyebrow",
-        Chin: "Chin",
-        Mustache: "Mustache",
-        "Upper Lip": "Upper Lip",
-        "Full Face": "Full Face",
-        "Full Arm": "Full Arm",
-        "Half Arm": "Half Arm",
-        "Full Legs": "Full Legs",
-        "Half Leg": "Half Leg",
-        Underarms: "Underarms",
+        "Nail Design / Art": "Nail Design / Art",
+        "Biogel Ombré": "Biogel Ombré",
+        "French Manicure": "French Manicure",
+        "American (Ombré) Manicure": "American (Ombré) Manicure",
       },
     },
   },
 
   // Combo packages
   comboPackages: {
-    "Classic Mani + Pedi": "Classic Mani + Pedi",
-    "Shellac Mani + Pedi": "Shellac Mani + Pedi",
-    "New Set Biogel + Shellac Pedi": "New Set Biogel + Shellac Pedi",
-    "Refill Biogel + Shellac Pedi": "Refill Biogel + Shellac Pedi",
+    "Regular Pedicure + Manicure": "Regular Pedicure + Manicure",
+    "Gel Pedicure + Manicure": "Gel Pedicure + Manicure",
+    "Pedicure + Toe Nail Full Set": "Pedicure + Toe Nail Full Set",
   },
 
   // Testimonials

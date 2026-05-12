@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Hand, Footprints, Layers, Palette, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Hand, Footprints, Layers, Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import ImageCarousel from "@/components/ImageCarousel";
 import { FloralBranch, FloralPeony, FloralWildflower, FloralScatter } from "@/components/FloralDecorations";
@@ -15,17 +15,19 @@ const iconMap: Record<string, LucideIcon> = {
   pedicure: Footprints,
   extensions: Layers,
   "nail-design": Palette,
-  waxing: Sparkles,
 };
 
 interface ServiceItem {
   name: string;
   price: string;
+  duration?: string;
+  priceFrom?: boolean;
 }
 
 interface ComboItem {
   name: string;
   price: string;
+  duration?: string;
 }
 
 interface ServiceDetailContentProps {
@@ -57,12 +59,15 @@ export default function ServiceDetailContent({
   const translatedItems = items.map((item) => ({
     name: cat?.items?.[item.name as keyof typeof cat.items] ?? item.name,
     price: item.price,
+    duration: item.duration,
+    priceFrom: item.priceFrom,
   }));
 
   // Translate combo names
   const translatedCombos = relatedCombos.map((combo) => ({
     name: t.comboPackages[combo.name as keyof typeof t.comboPackages] ?? combo.name,
     price: combo.price,
+    duration: combo.duration,
   }));
 
   return (
@@ -152,17 +157,22 @@ export default function ServiceDetailContent({
 
               <div className="space-y-0">
                 {translatedItems.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-baseline gap-3 py-3.5 first:pt-0 last:pb-0"
-                  >
-                    <span className="font-body text-base text-brown-700">
-                      {item.name}
-                    </span>
-                    <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
-                    <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800">
-                      {item.price}
-                    </span>
+                  <div key={item.name} className="py-3.5 first:pt-0 last:pb-0">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-body text-base text-brown-700">
+                        {item.name}
+                      </span>
+                      <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
+                      <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800 whitespace-nowrap">
+                        {item.priceFrom && <span className="font-body text-[11px] font-normal tracking-wider uppercase text-brown-400 mr-1">{t.services.from}</span>}
+                        {item.price}
+                      </span>
+                    </div>
+                    {item.duration && (
+                      <p className="font-body text-[11px] tracking-[0.15em] uppercase text-brown-400 mt-1">
+                        {item.duration}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -177,17 +187,21 @@ export default function ServiceDetailContent({
                 </h3>
                 <div className="space-y-0">
                   {translatedCombos.map((combo) => (
-                    <div
-                      key={combo.name}
-                      className="flex items-baseline gap-3 py-3"
-                    >
-                      <span className="font-body text-base font-medium text-brown-700">
-                        {combo.name}
-                      </span>
-                      <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
-                      <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800">
-                        {combo.price}
-                      </span>
+                    <div key={combo.name} className="py-3">
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-body text-base font-medium text-brown-700">
+                          {combo.name}
+                        </span>
+                        <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
+                        <span className="flex-shrink-0 font-display text-lg font-semibold text-brown-800 whitespace-nowrap">
+                          {combo.price}
+                        </span>
+                      </div>
+                      {combo.duration && (
+                        <p className="font-body text-[11px] tracking-[0.15em] uppercase text-brown-400 mt-1">
+                          {combo.duration}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>

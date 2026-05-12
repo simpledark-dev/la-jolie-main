@@ -22,7 +22,7 @@ const jost = Jost({
 const siteUrl = "https://ongles-diamant.com";
 const siteName = "Ongles Diamant";
 const siteDescription =
-  "Premium nail salon on Rue Saint-Hubert in Montreal's Petite-Patrie. Gel nails, manicure, pedicure, nail art & waxing — by appointment only. Book your visit today.";
+  "Premium nail salon on Rue Saint-Hubert in Montreal's Petite-Patrie. Gel nails, manicure, pedicure & custom nail art — by appointment only. Book your visit today.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Gel X nails Montreal",
     "biogel nails",
     "shellac manicure Montreal",
-    "waxing Rosemont",
+    "biogel refill Montreal",
     "nail salon Saint-Hubert",
     "premium nail care Montreal",
   ],

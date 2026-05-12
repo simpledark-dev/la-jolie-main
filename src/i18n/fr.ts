@@ -65,6 +65,7 @@ const fr: Translations = {
     comboDescription:
       "Économisez avec nos combinaisons soigneusement sélectionnées — la façon parfaite de vous faire plaisir.",
     bookAppointment: "Prendre Rendez-vous",
+    from: "à partir de",
   },
 
   // Service categories
@@ -72,13 +73,12 @@ const fr: Translations = {
     manicure: {
       category: "Manucure",
       description:
-        "Chouchoutez vos mains avec nos services de manucure experts. Du vernis classique au shellac longue durée, nous façonnons, polissons et perfectionnons chaque ongle avec soin et précision.",
+        "Chouchoutez vos mains avec nos services de manucure experts. Du vernis classique au gel longue durée, nous façonnons, polissons et perfectionnons chaque ongle avec soin et précision.",
       items: {
-        "Gel Nail Polish": "Vernis Gel",
-        "Gel Nail Polish Removal": "Retrait Vernis Gel",
-        Manicure: "Manucure",
-        "Shellac Manicure": "Manucure Shellac",
-        "Nail Repair": "Réparation d'Ongle",
+        "Regular Manicure": "Manucure Régulière",
+        "Gel Manicure": "Manucure Gel",
+        "Gel Color (Hands)": "Couleur Gel (Mains)",
+        "Regular Polish (Hands)": "Vernis Régulier (Mains)",
       },
     },
     pedicure: {
@@ -87,60 +87,43 @@ const fr: Translations = {
         "Offrez à vos pieds une expérience de pédicure relaxante. Nous trempons, exfolions et polissons pour que vos orteils soient beaux et rafraîchis de la pointe au talon.",
       items: {
         "Regular Pedicure": "Pédicure Régulière",
-        "Shellac Pedicure": "Pédicure Shellac",
-        "Nail Polish": "Vernis à Ongles",
-        Paraffin: "Paraffine",
+        "Gel Pedicure": "Pédicure Vernis Gel",
+        "Gel Polish (Feet)": "Vernis Gel (Pieds)",
+        "Regular Polish (Feet)": "Vernis Régulier (Pieds)",
       },
     },
     extensions: {
-      category: "Pose Complète / Extensions",
+      category: "Pose & Remplissage",
       description:
-        "Ajoutez longueur et solidité avec nos extensions d'ongles professionnelles. Que vous préfériez le Biogel pour un look naturel ou le Gel X pour un glamour instantané, nous créons des poses durables.",
+        "Ajoutez longueur et solidité avec nos poses d'ongles professionnelles. Que vous préfériez le Biogel pour un look naturel ou le Gel X pour un glamour instantané, nous créons des poses durables.",
       items: {
-        Biogel: "Biogel",
+        "Acrylic Full Set + Gel Polish": "Pose Acrylique + Vernis Gel",
+        "Biogel Full Set": "Pose Biogel",
+        "Gel X Full Set": "Pose Gel X",
+        "Toe Nail Full Set": "Pose d'Ongles aux Pieds",
+        "Acrylic Refill + Gel Polish": "Remplissage Acrylique + Vernis Gel",
         "Biogel Refill": "Remplissage Biogel",
-        "Biogel / Gel X Removal": "Retrait Biogel / Gel X",
-        "Gel X": "Gel X",
-        "Extra Long Nails": "Ongles Extra Longs",
+        "Acrylic Removal": "Enlever Acrylique",
       },
     },
     "nail-design": {
       category: "Design d'Ongles",
       description:
-        "Exprimez-vous avec du nail art personnalisé. Des French élégantes aux finitions chrome audacieuses et designs peints à la main — apportez votre vision, et nous la réaliserons.",
+        "Exprimez-vous avec du nail art personnalisé. Des French élégantes aux finitions ombré audacieuses et designs peints à la main — apportez votre vision, et nous la réaliserons.",
       items: {
-        "Nail Art / Design": "Nail Art / Design",
-        "French Tip Add-on": "Ajout French Tip",
-        "Chrome / Special": "Chrome / Spécial",
-        "Diamond Cat Eye": "Diamond Cat Eye",
-        Ombre: "Ombré",
-      },
-    },
-    waxing: {
-      category: "Épilation",
-      description:
-        "Des résultats lisses et nets avec nos services d'épilation douce. Nous offrons l'épilation du visage et du corps dans un cadre confortable et hygiénique — des séances rapides pour une douceur durable.",
-      items: {
-        Eyebrow: "Sourcils",
-        Chin: "Menton",
-        Mustache: "Moustache",
-        "Upper Lip": "Lèvre Supérieure",
-        "Full Face": "Visage Complet",
-        "Full Arm": "Bras Complet",
-        "Half Arm": "Demi-Bras",
-        "Full Legs": "Jambes Complètes",
-        "Half Leg": "Demi-Jambe",
-        Underarms: "Aisselles",
+        "Nail Design / Art": "Design / Nail Art",
+        "Biogel Ombré": "Ombré Biogel",
+        "French Manicure": "Manucure Français",
+        "American (Ombré) Manicure": "Manucure American (Ombré)",
       },
     },
   },
 
   // Combo packages
   comboPackages: {
-    "Classic Mani + Pedi": "Manucure + Pédicure Classique",
-    "Shellac Mani + Pedi": "Manucure + Pédicure Shellac",
-    "New Set Biogel + Shellac Pedi": "Nouvelle Pose Biogel + Pédicure Shellac",
-    "Refill Biogel + Shellac Pedi": "Remplissage Biogel + Pédicure Shellac",
+    "Regular Pedicure + Manicure": "Pédicure + Manucure Régulière",
+    "Gel Pedicure + Manicure": "Pédicure + Manucure Vernis Gel",
+    "Pedicure + Toe Nail Full Set": "Pédicure + Pose d'Ongles aux Pieds",
   },
 
   // Testimonials

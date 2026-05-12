@@ -54,17 +54,22 @@ export default function Services() {
                 {/* Items */}
                 <div className="space-y-0">
                   {category.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className="flex items-baseline gap-2 py-2.5"
-                    >
-                      <span className="font-body text-sm text-brown-700">
-                        {(t.serviceCategories[category.slug as keyof typeof t.serviceCategories]?.items as Record<string, string>)?.[item.name] ?? item.name}
-                      </span>
-                      <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
-                      <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
-                        {item.price}
-                      </span>
+                    <div key={item.name} className="py-2.5">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-body text-sm text-brown-700">
+                          {(t.serviceCategories[category.slug as keyof typeof t.serviceCategories]?.items as Record<string, string>)?.[item.name] ?? item.name}
+                        </span>
+                        <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
+                        <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800 whitespace-nowrap">
+                          {item.priceFrom && <span className="font-body text-[10px] font-normal tracking-wider uppercase text-brown-400 mr-1">{t.services.from}</span>}
+                          {item.price}
+                        </span>
+                      </div>
+                      {item.duration && (
+                        <p className="font-body text-[10px] tracking-[0.15em] uppercase text-brown-400 mt-0.5">
+                          {item.duration}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -104,17 +109,21 @@ export default function Services() {
               {/* Items */}
               <div className="space-y-0">
                 {comboPackages.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-baseline gap-2 py-2.5"
-                  >
-                    <span className="font-body text-sm font-medium text-brown-700">
-                      {(t.comboPackages as Record<string, string>)[item.name] ?? item.name}
-                    </span>
-                    <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
-                    <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800">
-                      {item.price}
-                    </span>
+                  <div key={item.name} className="py-2.5">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-body text-sm font-medium text-brown-700">
+                        {(t.comboPackages as Record<string, string>)[item.name] ?? item.name}
+                      </span>
+                      <span className="flex-1 border-b border-dotted border-brown-200/60 min-w-[20px] translate-y-[-3px]" />
+                      <span className="flex-shrink-0 font-display text-base font-semibold text-brown-800 whitespace-nowrap">
+                        {item.price}
+                      </span>
+                    </div>
+                    {item.duration && (
+                      <p className="font-body text-[10px] tracking-[0.15em] uppercase text-brown-400 mt-0.5">
+                        {item.duration}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
