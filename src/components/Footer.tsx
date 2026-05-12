@@ -1,6 +1,7 @@
 "use client";
 
-import { Instagram, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
+import InstagramGradientIcon from "@/components/InstagramGradientIcon";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useTranslation } from "@/i18n/LanguageContext";
 
@@ -38,7 +39,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-6 font-body text-sm tracking-wider text-gold-light/80 transition-colors duration-300 hover:text-gold"
             >
-              <Instagram size={18} />
+              <InstagramGradientIcon size={20} />
               @ongles_diamant_rose
             </a>
           </div>
