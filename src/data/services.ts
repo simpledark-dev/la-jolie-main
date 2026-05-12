@@ -8,24 +8,6 @@ import pinkLeopardStilettoBow from "@/assets/gallery/pink-leopard-stiletto-bow.j
 import pinkWhiteFrenchFloral from "@/assets/gallery/pink-white-french-floral.jpg";
 import purpleGoldCloudArt from "@/assets/gallery/purple-gold-cloud-art.jpg";
 import pastelFrenchMulticolor from "@/assets/gallery/pastel-french-multicolor.jpg";
-import nudeBlushClassic from "@/assets/gallery/nude-blush-classic.jpg";
-import pearlShimmerNatural from "@/assets/gallery/pearl-shimmer-natural.jpg";
-import pastelAuroraChrome from "@/assets/gallery/pastel-aurora-chrome.jpg";
-import frenchButterflyWhite from "@/assets/gallery/french-butterfly-white.jpg";
-import floralBlossomArt from "@/assets/gallery/floral-blossom-art.jpg";
-import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
-import redFrenchFloral from "@/assets/gallery/red-french-floral.jpg";
-import whiteBowFrenchSquare from "@/assets/gallery/white-bow-french-square.jpeg";
-import pinkCrystalFrenchGlitter from "@/assets/gallery/pink-crystal-french-glitter.jpg";
-import silverGlitterFrenchAlmond from "@/assets/gallery/silver-glitter-french-almond.jpg";
-import whiteFrench3dFlowers from "@/assets/gallery/white-french-3d-flowers.jpg";
-import cherryBlossomMintArt from "@/assets/gallery/cherry-blossom-mint-art.jpg";
-import goldWhiteBowArt from "@/assets/gallery/gold-white-bow-art.jpg";
-import blackWhitePolkaStripe from "@/assets/gallery/black-white-polka-stripe.jpg";
-import classicPinkWhiteFrench from "@/assets/gallery/classic-pink-white-french.jpg";
-import navyChromeCatEye from "@/assets/gallery/navy-chrome-cat-eye.jpg";
-import pastelRainbowOmbre from "@/assets/gallery/pastel-rainbow-ombre.jpg";
-import whiteSnowflakeSquare from "@/assets/gallery/white-snowflake-square.jpg";
 import frenchPedicureWhiteTips from "@/assets/gallery/french-pedicure-white-tips.jpg";
 import nudeGelPedicure from "@/assets/gallery/nude-gel-pedicure.jpg";
 import glitterGoldPedicure from "@/assets/gallery/glitter-gold-pedicure.webp";
@@ -57,7 +39,7 @@ export const services: ServiceCategory[] = [
     icon: Hand,
     description:
       "Pamper your hands with our expert manicure services. From classic polish to long-lasting shellac, we shape, buff, and perfect every nail with care and precision.",
-    images: [sheerPink3dFlowers, pearlChromeAlmond, pinkWhiteFrenchFloral, pastelFrenchMulticolor, nudeBlushClassic, pearlShimmerNatural, pinkCrystalFrenchGlitter, classicPinkWhiteFrench, silverGlitterFrenchAlmond, whiteBowFrenchSquare, whiteSnowflakeSquare, pastelRainbowOmbre, pastelAuroraChrome, frenchButterflyWhite, floralBlossomArt, leopardBowFrench, redFrenchFloral, whiteFrench3dFlowers, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye],
+    images: [sheerPink3dFlowers, pearlChromeAlmond, pinkWhiteFrenchFloral, pastelFrenchMulticolor],
     items: [
       { name: "Gel Nail Polish", price: "$30" },
       { name: "Gel Nail Polish Removal", price: "$10" },
@@ -86,7 +68,7 @@ export const services: ServiceCategory[] = [
     icon: Layers,
     description:
       "Add length and strength with our professional nail extensions. Whether you prefer Biogel for a natural look or Gel X for instant glam, we build sets that last.",
-    images: [sheerPink3dFlowers, pinkLeopardStilettoBow, pearlChromeAlmond, pinkWhiteFrenchFloral, pastelFrenchMulticolor, pastelAuroraChrome, frenchButterflyWhite, silverGlitterFrenchAlmond, whiteBowFrenchSquare, nudeBlushClassic, pinkCrystalFrenchGlitter, classicPinkWhiteFrench, whiteFrench3dFlowers, whiteSnowflakeSquare, pearlShimmerNatural, floralBlossomArt, leopardBowFrench, redFrenchFloral, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye, pastelRainbowOmbre],
+    images: [sheerPink3dFlowers, pinkLeopardStilettoBow, pearlChromeAlmond, pinkWhiteFrenchFloral, pastelFrenchMulticolor],
     items: [
       { name: "Biogel", price: "$65" },
       { name: "Biogel Refill", price: "$50" },
@@ -101,7 +83,7 @@ export const services: ServiceCategory[] = [
     icon: Palette,
     description:
       "Express yourself with custom nail art. From elegant French tips to bold chrome finishes and hand-painted designs — bring your vision, and we'll make it real.",
-    images: [sheerPink3dFlowers, pinkLeopardStilettoBow, purpleGoldCloudArt, pinkWhiteFrenchFloral, pastelFrenchMulticolor, floralBlossomArt, leopardBowFrench, redFrenchFloral, whiteFrench3dFlowers, cherryBlossomMintArt, goldWhiteBowArt, blackWhitePolkaStripe, navyChromeCatEye, pastelRainbowOmbre, whiteSnowflakeSquare, pinkCrystalFrenchGlitter, whiteBowFrenchSquare, nudeBlushClassic, pearlShimmerNatural, pastelAuroraChrome, frenchButterflyWhite, silverGlitterFrenchAlmond, classicPinkWhiteFrench],
+    images: [sheerPink3dFlowers, pinkLeopardStilettoBow, purpleGoldCloudArt, pinkWhiteFrenchFloral, pastelFrenchMulticolor],
     items: [
       { name: "Nail Art / Design", price: "$5 – $25+" },
       { name: "French Tip Add-on", price: "$15" },

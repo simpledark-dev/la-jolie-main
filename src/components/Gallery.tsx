@@ -13,28 +13,6 @@ import pinkLeopardStilettoBow from "@/assets/gallery/pink-leopard-stiletto-bow.j
 import pinkWhiteFrenchFloral from "@/assets/gallery/pink-white-french-floral.jpg";
 import purpleGoldCloudArt from "@/assets/gallery/purple-gold-cloud-art.jpg";
 import pastelFrenchMulticolor from "@/assets/gallery/pastel-french-multicolor.jpg";
-import leopardBowFrench from "@/assets/gallery/leopard-bow-french.jpg";
-import pastelAuroraChrome from "@/assets/gallery/pastel-aurora-chrome.jpg";
-import pearlShimmerNatural from "@/assets/gallery/pearl-shimmer-natural.jpg";
-import floralBlossomArt from "@/assets/gallery/floral-blossom-art.jpg";
-import nudeBlushClassic from "@/assets/gallery/nude-blush-classic.jpg";
-import frenchButterflyWhite from "@/assets/gallery/french-butterfly-white.jpg";
-import redFrenchFloral from "@/assets/gallery/red-french-floral.jpg";
-import whiteBowFrenchSquare from "@/assets/gallery/white-bow-french-square.jpeg";
-import pinkCrystalFrenchGlitter from "@/assets/gallery/pink-crystal-french-glitter.jpg";
-import silverGlitterFrenchAlmond from "@/assets/gallery/silver-glitter-french-almond.jpg";
-import whiteFrench3dFlowers from "@/assets/gallery/white-french-3d-flowers.jpg";
-import cherryBlossomMintArt from "@/assets/gallery/cherry-blossom-mint-art.jpg";
-import goldWhiteBowArt from "@/assets/gallery/gold-white-bow-art.jpg";
-import blackWhitePolkaStripe from "@/assets/gallery/black-white-polka-stripe.jpg";
-import whiteSnowflakeSquare from "@/assets/gallery/white-snowflake-square.jpg";
-import navyChromeCatEye from "@/assets/gallery/navy-chrome-cat-eye.jpg";
-import classicPinkWhiteFrench from "@/assets/gallery/classic-pink-white-french.jpg";
-import pastelRainbowOmbre from "@/assets/gallery/pastel-rainbow-ombre.jpg";
-import frenchPedicureWhiteTips from "@/assets/gallery/french-pedicure-white-tips.jpg";
-import nudeGelPedicure from "@/assets/gallery/nude-gel-pedicure.jpg";
-import glitterGoldPedicure from "@/assets/gallery/glitter-gold-pedicure.webp";
-import pearlShimmerPedicure from "@/assets/gallery/pearl-shimmer-pedicure.webp";
 
 type GalleryItem =
   | { kind: "image"; src: StaticImageData; alt: string }
@@ -49,28 +27,6 @@ const galleryImages: GalleryItem[] = [
   { kind: "image", src: purpleGoldCloudArt, alt: "Purple and gold hand-painted nail art with sun motifs" },
   { kind: "image", src: pinkLeopardStilettoBow, alt: "Pink stiletto nails with leopard tips and 3D bows" },
   { kind: "image", src: pastelFrenchMulticolor, alt: "Almond nails with pastel multicolor French tips" },
-  { kind: "image", src: leopardBowFrench, alt: "Leopard print French tips with bow accents" },
-  { kind: "image", src: pastelAuroraChrome, alt: "Pastel aurora chrome nails" },
-  { kind: "image", src: pearlShimmerNatural, alt: "Pearl shimmer natural finish" },
-  { kind: "image", src: floralBlossomArt, alt: "Floral blossom nail art" },
-  { kind: "image", src: nudeBlushClassic, alt: "Classic nude blush nails" },
-  { kind: "image", src: frenchButterflyWhite, alt: "White French tips with butterfly art" },
-  { kind: "image", src: redFrenchFloral, alt: "Red French tips with floral accents" },
-  { kind: "image", src: whiteBowFrenchSquare, alt: "White French square nails with 3D bows" },
-  { kind: "image", src: pinkCrystalFrenchGlitter, alt: "Pink French tips with crystal gems and glitter" },
-  { kind: "image", src: silverGlitterFrenchAlmond, alt: "Silver glitter French almond nails" },
-  { kind: "image", src: whiteFrench3dFlowers, alt: "White French tips with 3D flower accents" },
-  { kind: "image", src: cherryBlossomMintArt, alt: "Cherry blossom nail art on mint and white" },
-  { kind: "image", src: goldWhiteBowArt, alt: "Gold and white bow nail art" },
-  { kind: "image", src: blackWhitePolkaStripe, alt: "Black and white polka dot stripe nails" },
-  { kind: "image", src: whiteSnowflakeSquare, alt: "White snowflake nail art square nails" },
-  { kind: "image", src: navyChromeCatEye, alt: "Navy blue chrome cat eye with star gems" },
-  { kind: "image", src: classicPinkWhiteFrench, alt: "Classic pink and white French tips" },
-  { kind: "image", src: pastelRainbowOmbre, alt: "Pastel rainbow ombre with gems" },
-  { kind: "image", src: frenchPedicureWhiteTips, alt: "French pedicure with white tips" },
-  { kind: "image", src: nudeGelPedicure, alt: "Nude gel pedicure" },
-  { kind: "image", src: glitterGoldPedicure, alt: "Glitter gold pedicure" },
-  { kind: "image", src: pearlShimmerPedicure, alt: "Pearl shimmer pedicure" },
 ];
 
 const INITIAL_COUNT = 12;
@@ -142,7 +98,7 @@ export default function Gallery() {
         </ScrollReveal>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {visibleImages.map((item, i) => (
             <ScrollReveal key={i} delay={i < 6 ? i * 80 : 0}>
               <button
@@ -173,7 +129,7 @@ export default function Gallery() {
                     src={item.src}
                     alt={item.alt}
                     fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                 )}
